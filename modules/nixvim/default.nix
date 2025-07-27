@@ -1,4 +1,4 @@
-{ lib, self }:
+{ lib, self, ... }:
 let
   by-name = ./plugins;
   plugins = lib.attrsets.foldlAttrs (
@@ -17,4 +17,7 @@ in
     ./diagnostics.nix
     ./lsp.nix
   ];
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
 }
