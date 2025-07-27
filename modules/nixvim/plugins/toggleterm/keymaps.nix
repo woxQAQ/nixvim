@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  inherit (config.plugins) toggleterm snacks;
+  inherit (config.plugins) snacks;
 in
 {
   keymaps = [

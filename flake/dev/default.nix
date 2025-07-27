@@ -1,3 +1,4 @@
+{ ... }:
 {
   imports = [
     ./dev-shell.nix

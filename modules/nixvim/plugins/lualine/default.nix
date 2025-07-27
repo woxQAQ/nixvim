@@ -1,9 +1,4 @@
-{ icons, ... }:
-let
-  inherit (builtins) readFile;
-in
-
-{
+_: {
   plugins.lualine = {
     enable = true;
 

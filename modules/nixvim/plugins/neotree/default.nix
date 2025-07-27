@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ config, ... }:
 let
   inherit (config.plugins) yazi;
 in

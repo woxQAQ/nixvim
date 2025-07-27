@@ -1,5 +1,4 @@
-{ config, lib, ... }:
-{
+_: {
   plugins = {
     claude-code = {
       enable = true;

@@ -10,11 +10,11 @@
   partitions = {
     dev = {
       module = ./dev;
-      extraInputFlake = ./dev;
+      extraInputsFlake = ./dev;
     };
   };
   partitionedAttrs = {
-    check = "dev";
+    checks = "dev";
     devShells = "dev";
     formatter = "dev";
   };

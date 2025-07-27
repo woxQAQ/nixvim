@@ -1,4 +1,4 @@
-{ lib, self, ... }:
+{ lib, ... }:
 let
   by-name = ./plugins;
   plugins = lib.attrsets.foldlAttrs (

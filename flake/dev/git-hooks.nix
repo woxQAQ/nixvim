@@ -1,12 +1,13 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
+let
+  module = inputs.git-hooks-nix;
+in
 {
-  imports = [
-    inputs.git-hook-nix.flakeModules
-  ];
+  imports = lib.optional (module ? flakeModule) module.flakeModule;
 
   perSystem =
     { pkgs, ... }:
-    {
+    lib.optionalAttrs (module ? flakeModule) {
       pre-commit = {
         check.enable = true;
         settings.hooks = {

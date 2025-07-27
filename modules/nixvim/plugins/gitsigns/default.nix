@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ ... }:
 {
   imports = [
     ./which-key-specs.nix

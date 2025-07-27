@@ -1,5 +1,4 @@
-{ config, lib, ... }:
-{
+_: {
   plugins = {
     neogen = {
       enable = true;

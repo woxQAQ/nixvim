@@ -1,10 +1,9 @@
 {
   config,
-  lib,
   self,
   system,
   ...
-}@args:
+}:
 let
   inherit (config.plugins) treesitter;
 in

@@ -1,5 +1,4 @@
-{ lib, config, ... }:
-{
+_: {
   plugins = {
     snacks = {
       settings = {

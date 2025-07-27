@@ -1,11 +1,12 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
+let
+  module = inputs.treefmt-nix;
+in
 {
-  imports = [
-    inputs.treefmt-nix.flakeModules
-  ];
+  imports = lib.optional (module ? flakeModule) module.flakeModule;
   perSystem =
     { pkgs, ... }:
-    {
+    lib.optionalAttrs (module ? flakeModule) {
       treefmt = {
         flakeCheck = true;
         flakeFormatter = true;
@@ -36,30 +37,30 @@
             package = pkgs.nixfmt;
           };
           ruff-check.enable = true;
-          ruff-fmt.enable = true;
+          ruff-format.enable = true;
           rustfmt.enable = true;
           statix.enable = true;
           stylua.enable = true;
           taplo.enable = true;
           yamlfmt.enable = true;
         };
-      };
-      settings = {
-        globals.excludes = [
-          "*.editorconfig"
-          "*.envrc"
-          "*.git-blame-ignore-revs"
-          "*.gitattributes"
-          "*.gitconfig"
-          "*.gitignore"
-          "*.luacheckrc"
-          "*CODEOWNERS"
-          "*LICENSE"
-          "*flake.lock"
-          "assets/*"
-          "justfile"
-        ];
-        formatter.ruff-format.options = [ "--isolated" ];
+        settings = {
+          global.excludes = [
+            "*.editorconfig"
+            "*.envrc"
+            "*.git-blame-ignore-revs"
+            "*.gitattributes"
+            "*.gitconfig"
+            "*.gitignore"
+            "*.luacheckrc"
+            "*CODEOWNERS"
+            "*LICENSE"
+            "*flake.lock"
+            "assets/*"
+            "justfile"
+          ];
+          formatter.ruff-format.options = [ "--isolated" ];
+        };
       };
     };
 }
