@@ -15,12 +15,15 @@ in
     blink-cmp-npm-nvim
     blink-nerdfont-nvim
   ];
-  plugins.blink-cmp = {
-    enable = true;
+  plugins = {
     blink-ripgrep.enable = true;
     blink-emoji.enable = true;
-    blink-cmp-spell = true;
-    blink-cmp-git = true;
+    blink-cmp-spell.enable = true;
+    blink-cmp-git.enable = true;
+  };
+  plugins.blink-cmp = {
+    enable = true;
+
     lazyLoad.settings.event = [
       "InsertEnter"
       "CmdlineEnter"
@@ -108,7 +111,7 @@ in
           inherit (pkgs.vimPlugins) blink-cmp-conventional-commits blink-nerdfont-nvim blink-cmp-npm-nvim;
         in
         {
-          default.__row = # lua
+          default.__raw = # lua
             ''
               function(ctx)
                 -- Base sources that are always available
@@ -207,7 +210,7 @@ in
               avante = mkIf avante.enable {
                 enable = true;
                 name = "Avante";
-                enabled.__row = # lua
+                enabled.__raw = # lua
                   ''
                     function()
                       return vim.bo.filetype= "Avante"

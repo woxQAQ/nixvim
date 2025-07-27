@@ -14,9 +14,9 @@ in
   plugins.treesitter = {
     enable = true;
     nixvimInjections = true;
-    grammarPackages = config.plugins.treesitter.package.passthru.allGrammars ++ [
-      self.packages.${system}.tree-sitter-norg-meta
-    ];
+    # grammarPackages = config.plugins.treesitter.package.passthru.allGrammars ++ [
+    #   self.packages.${system}.tree-sitter-norg-meta
+    # ];
     folding = true;
     settings = {
       highlight = {
@@ -42,7 +42,7 @@ in
     };
   };
 
-  treesitter-context = {
+  plugins.treesitter-context = {
     inherit (treesitter) enable;
     settings = {
       max_lines = 4;
@@ -52,7 +52,7 @@ in
     };
   };
 
-  treesitter-refactor = {
+  plugins.treesitter-refactor = {
     inherit (treesitter) enable;
     highlightDefinitions = {
       enable = true;

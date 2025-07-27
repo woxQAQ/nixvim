@@ -8,7 +8,7 @@ let
   inherit (config.plugins) noice snacks fzf-lua;
 in
 {
-  telescope = {
+  plugins.telescope = {
     enable = true;
     lazyLoad.settings.cmd = [ "Telescopt" ] ++ optionals noice.enable [ "Noice telescope" ];
 

@@ -1,8 +1,12 @@
 {
   inputs,
   self,
+  lib,
   ...
 }:
+let
+  nvlib = import ../lib;
+in
 {
   imports = [
     inputs.nixvim.flakeModules.default
@@ -25,7 +29,12 @@
           inherit system;
 
           extraSpecialArgs = {
-            inherit inputs system self;
+            inherit
+              inputs
+              system
+              self
+              nvlib
+              ;
           };
 
           modules = [

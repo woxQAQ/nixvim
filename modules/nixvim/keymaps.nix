@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (nvlib.keys)
+  inherit (nvlib.keys { inherit lib; })
     normal
     visual
     insert
@@ -94,7 +94,7 @@ in
     mapleader = " ";
     maplocalleader = " ";
   };
-  keymaps = config.lib.nixvim.keymaps.mkKeymaps {
+  keymaps = lib.nixvim.keymaps.mkKeymaps {
     options.silent = true;
   } (normalSet ++ visualSet ++ insertSet);
 }

@@ -5,8 +5,8 @@ let
   toggle = import ./keymaps/toggle.nix;
 in
 {
-  keymaps =
-    lib.mkIf config.plugins.gitsigns.enable [
+  keymaps = lib.mkIf config.plugins.gitsigns.enable (
+    [
       {
         mode = "n";
         key = "<leader>gd";
@@ -16,5 +16,6 @@ in
     ]
     ++ hunk
     ++ blame
-    ++ toggle;
+    ++ toggle
+  );
 }

@@ -16,27 +16,22 @@ in
     settings.signs = true;
     keymaps = {
       todoTrouble.key = mkIf trouble.enable "<leader>xq";
-      todoFzfLua =
-        mkIf fzf-lua.enable
-        && (!snacks.enable || snakepicker) {
-          key = "<leader>ft";
-          keywords = [
-            "TODO"
-            "FIX"
-            "FIXME"
-          ];
-        };
-      todoTelescope =
-        mkIf telescope.enable
-        && !fzf-lua.enable
-        && (!snacks.enable || snakepicker) {
-          key = "<leader>ft";
-          keywords = [
-            "TODO"
-            "FIX"
-            "FIXME"
-          ];
-        };
+      todoFzfLua = mkIf (fzf-lua.enable && (!snacks.enable || snakepicker)) {
+        key = "<leader>ft";
+        keywords = [
+          "TODO"
+          "FIX"
+          "FIXME"
+        ];
+      };
+      todoTelescope = mkIf (telescope.enable && !fzf-lua.enable && (!snacks.enable || snakepicker)) {
+        key = "<leader>ft";
+        keywords = [
+          "TODO"
+          "FIX"
+          "FIXME"
+        ];
+      };
     };
   };
 }

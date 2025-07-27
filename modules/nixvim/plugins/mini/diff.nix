@@ -1,7 +1,6 @@
-{ lib, config, ... }:
 {
   imports = [ ./keymaps/diff.nix ];
-  plugins.mini.modules = lib.mkIf (!config.plugins.unified.enable) {
+  plugins.mini.modules = {
     diff.view.style = "sign";
   };
 }
