@@ -1,4 +1,4 @@
-{ config, lib }:
+{ config, lib, ... }:
 {
   keymaps = lib.mkIf config.plugins.oil.enable [
     {

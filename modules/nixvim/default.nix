@@ -11,7 +11,6 @@ in
     ./autocommands.nix
     ./keymaps.nix
     ./options.nix
-    ./plugins
     ./performance.nix
     ./ft.nix
     ./diagnostics.nix

@@ -1,4 +1,4 @@
-{ lib, config }:
+{ lib, config, ... }:
 {
   plugins.snacks.settings.dashboard = {
     sections = [

@@ -2,6 +2,7 @@
   lib,
   pkgs,
   self,
+  ...
 }:
 {
   lsp.servers.nixd = {

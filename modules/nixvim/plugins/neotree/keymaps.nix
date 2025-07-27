@@ -1,4 +1,4 @@
-{ lib, config }:
+{ lib, config, ... }:
 {
   keymaps = lib.mkIf config.plugins.neo-tree.enable [
     {
