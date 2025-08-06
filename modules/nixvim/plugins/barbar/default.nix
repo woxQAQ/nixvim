@@ -1,5 +1,5 @@
 {
-  barbar = {
+  plugins.barbar = {
     enable = true;
     keymaps = {
       close.key = "<leader>bc";

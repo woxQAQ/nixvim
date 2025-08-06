@@ -1,5 +1,5 @@
 {
-  smartcolumn = {
+  plugins.smartcolumn = {
     enable = true;
     lazyLoad.settings.event = "DeferredUIEnter";
     settings = {
@@ -18,7 +18,8 @@
       ];
     };
   };
-  snacks = {
+  keymaps = import ./keymaps.nix;
+  plugins.snacks = {
     enable = true;
     settings = {
       image.enabled = true;

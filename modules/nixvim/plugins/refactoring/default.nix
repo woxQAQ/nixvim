@@ -1,5 +1,5 @@
 {
-  refactoring = {
+  plugins.refactoring = {
     enable = true;
     settings = {
       prompt_func_return_type = {

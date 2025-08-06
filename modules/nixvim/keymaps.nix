@@ -1,120 +1,88 @@
 {
   config,
-  pkgs,
-  lib,
   ...
 }:
 let
-  nvlib = import ./lib;
-  keys = nvlib.keys { inherit lib; };
-
-  flattenKeyMaps =
-    keymaps:
-    let
-      flatten = x: if builtins.isList x then lib.concatMap flatten x else [ x ];
-    in
-    flatten keymaps;
-
-  # Enhanced keymap helpers
-  inherit (keys)
-    normal
-    visual
-    insert
-    terminal
-    nv
-    ni
-    nvi
-    all
-    category
-    withOptions
-    flattenKeymaps
-    ;
+  inherit (config.nixvimlib.keys) mkKeymaps;
 
   # Core keymaps grouped by functionality
-  coreKeymaps = category "core" [
-    (normal "<Space>" "<NOP>" "Disable space bar" { silent = true; })
-    (normal "<esc>" ":noh<CR>" "Clear search highlights" { silent = true; })
-    (normal "Y" "y$" "Yank to end of line" { silent = true; })
-    (normal "<C-c>" ":b#<CR>" "Switch to previous buffer" { })
-    (normal "<C-x>" ":close<CR>" "Close current window" {
-      silent = true;
-      nowait = true;
-    })
-    (nvi "<C-s>" ":w<CR>" "Save file" { silent = true; })
+  coreKeymaps = [
+    (mkKeymaps "n" "<Space>" "<NOP>" "Disable space bar")
+    (mkKeymaps "n" "<esc>" ":noh<CR>" "Clear search highlights")
+    (mkKeymaps "n" "Y" "y$" "Yank to end of line")
+    (mkKeymaps "n" "<C-c>" ":b#<CR>" "Switch to previous buffer")
+    (mkKeymaps "n" "<C-x>" ":close<CR>" "Close current window")
+    (mkKeymaps [ "n" "v" "i" ] "<C-s>" ":w<CR>" "Save file")
   ];
 
   # File operations
-  fileKeymaps = category "files" [
-    (normal "<leader>s" ":w<CR>" "Save file" { silent = true; })
-    (normal "<leader>q" ":q<CR>" "Quit file" { silent = true; })
-    (normal "<leader>wq" ":wq<CR>" "Save and quit" { silent = true; })
-    (normal "<leader>qq" ":qa!<CR>" "Quit all without saving" { silent = true; })
+  fileKeymaps = [
+    (mkKeymaps "n" "<leader>s" ":w<CR>" "Save file")
+    (mkKeymaps "n" "<leader>q" ":q<CR>" "Quit file")
+    (mkKeymaps "n" "<leader>wq" ":wq<CR>" "Save and quit")
+    (mkKeymaps "n" "<leader>qq" ":qa!<CR>" "Quit all without saving")
   ];
 
   # Window navigation
-  windowKeymaps = category "windows" [
-    (normal "<leader>h" "<C-w>h" "Navigate to left window" { silent = true; })
-    (normal "<leader>l" "<C-w>l" "Navigate to right window" { silent = true; })
-    (normal "<leader>j" "<C-w>j" "Navigate to down window" { silent = true; })
-    (normal "<leader>k" "<C-w>k" "Navigate to upper window" { silent = true; })
-    (normal "<leader>sl" "<c-w>v" "Split window vertically" { silent = true; })
-    (normal "<leader>sj" "<c-w>s" "Split window horizontally" { silent = true; })
-    (normal "<leader>sc" "<c-w>c" "Close current window" { silent = true; })
-    (normal "<leader>so" "<c-w>o" "Close other windows" { silent = true; })
+  windowKeymaps = [
+    (mkKeymaps "n" "<leader>h" "<C-w>h" "Navigate to left window")
+    (mkKeymaps "n" "<leader>l" "<C-w>l" "Navigate to right window")
+    (mkKeymaps "n" "<leader>j" "<C-w>j" "Navigate to down window")
+    (mkKeymaps "n" "<leader>k" "<C-w>k" "Navigate to upper window")
+    (mkKeymaps "n" "<leader>sl" "<c-w>v" "Split window vertically")
+    (mkKeymaps "n" "<leader>sj" "<c-w>s" "Split window horizontally")
+    (mkKeymaps "n" "<leader>sc" "<c-w>c" "Close current window")
+    (mkKeymaps "n" "<leader>so" "<c-w>o" "Close other windows")
   ];
 
   # Line navigation
-  lineKeymaps = category "lines" [
-    (normal "L" "$" "Jump to end of line" { silent = true; })
-    (normal "H" "^" "Jump to start of line" { silent = true; })
-    (normal "<M-k>" ":move-2<CR>" "Move line up" { silent = true; })
-    (normal "<M-j>" ":move+<CR>" "Move line down" { silent = true; })
+  lineKeymaps = [
+    (mkKeymaps "n" "L" "$" "Jump to end of line")
+    (mkKeymaps "n" "H" "^" "Jump to start of line")
+    (mkKeymaps "n" "<M-k>" ":move-2<CR>" "Move line up")
+    (mkKeymaps "n" "<M-j>" ":move+<CR>" "Move line down")
   ];
 
   # Multi-mode keymaps examples
-  multiModeKeymaps = category "multi-mode" [
-    (nv "j" "gj" "Navigate by display line" { silent = true; })
-    (nv "k" "gk" "Navigate by display line" { silent = true; })
-    (ni "<C-h>" "<Left>" "Move left in insert mode" { silent = true; })
-    (ni "<C-j>" "<Down>" "Move down in insert mode" { silent = true; })
-    (ni "<C-k>" "<Up>" "Move up in insert mode" { silent = true; })
-    (ni "<C-l>" "<Right>" "Move right in insert mode" { silent = true; })
+  multiModeKeymaps = [
+    (mkKeymaps [ "n" "v" ] "j" "gj" "Navigate by display line")
+    (mkKeymaps [ "n" "v" ] "k" "gk" "Navigate by display line")
+    (mkKeymaps [ "n" "i" ] "<C-h>" "<Left>" "Move left in insert mode")
+    (mkKeymaps [ "n" "i" ] "<C-j>" "<Down>" "Move down in insert mode")
+    (mkKeymaps [ "n" "i" ] "<C-k>" "<Up>" "Move up in insert mode")
+    (mkKeymaps [ "n" "i" ] "<C-l>" "<Right>" "Move right in insert mode")
   ];
 
   # Linux-specific keymaps
-  linuxKeymaps = category "linux" [
-    (normal "<C-Up>" ":resize +2<CR>" "Resize window up" { silent = true; })
-    (normal "<C-Down>" ":resize -2<CR>" "Resize window down" { silent = true; })
-    (normal "<C-Left>" ":vertical resize +2<CR>" "Resize window left" { silent = true; })
-    (normal "<C-Right>" ":vertical resize -2<CR>" "Resize window right" { silent = true; })
+  linuxKeymaps = [
+    (mkKeymaps "n" "<C-Up>" ":resize +2<CR>" "Resize window up")
+    (mkKeymaps "n" "<C-Down>" ":resize -2<CR>" "Resize window down")
+    (mkKeymaps "n" "<C-Left>" ":vertical resize +2<CR>" "Resize window left")
+    (mkKeymaps "n" "<C-Right>" ":vertical resize -2<CR>" "Resize window right")
   ];
 
   # Visual mode keymaps
-  visualKeymaps = category "visual" [
-    (visual ">" ">gv" "Indent and keep selection" { silent = true; })
-    (visual "<" "<gv" "Unindent and keep selection" { silent = true; })
-    (visual "K" ":m '<-2<CR>gv=gv" "Move selection up" { silent = true; })
-    (visual "J" ":m '>+1<CR>gv=gv" "Move selection down" { silent = true; })
-    (visual "<leader>s" ":sort<CR>" "Sort selection" { silent = true; })
+  visualKeymaps = [
+    (mkKeymaps "v" ">" ">gv" "Indent and keep selection")
+    (mkKeymaps "v" "<" "<gv" "Unindent and keep selection")
+    (mkKeymaps "v" "K" ":m '<-2<CR>gv=gv" "Move selection up")
+    (mkKeymaps "v" "J" ":m '>+1<CR>gv=gv" "Move selection down")
+    (mkKeymaps "v" "<leader>s" ":sort<CR>" "Sort selection")
   ];
 
-  # Collect all keymaps without global silent option
-  allKeymaps = flattenKeyMaps [
-    coreKeymaps.keymaps
-    fileKeymaps.keymaps
-    windowKeymaps.keymaps
-    lineKeymaps.keymaps
-    multiModeKeymaps.keymaps
-    (lib.optionals pkgs.stdenv.hostPlatform.isLinux linuxKeymaps.keymaps)
-    visualKeymaps.keymaps
-  ];
 in
 {
-  programs.nixvim = {
-    globals = {
-      mapleader = " ";
-      maplocalleader = " ";
-    };
-    keymaps = config.lib.nixvim.keymaps.mkKeymaps { } allKeymaps;
+  globals = {
+    mapleader = " ";
+    maplocalleader = " ";
   };
+  keymaps =
+    [ ]
+    ++ coreKeymaps
+    ++ windowKeymaps
+    ++ visualKeymaps
+    ++ multiModeKeymaps
+    ++ linuxKeymaps
+    ++ fileKeymaps
+    ++ lineKeymaps;
 }

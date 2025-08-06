@@ -1,6 +1,16 @@
 { mylib, lib, ... }:
+let
+  inherit (builtins) readDir;
+  inherit (lib.attrsets) foldAttrs;
+  _plugins = (
+    foldAttrs (
+      prev: name: type:
+      prev ++ lib.lists.optional (type == "directory") (./plugins + "/${name}")
+    ) [ ] (readDir ./plugins)
+  );
+in
 {
-  imports = [
+  imports = _plugins ++ [
     ./plugins
     ./autocommands.nix
     ./color.nix
@@ -9,39 +19,7 @@
     ./todo.nix
     ./lsp.nix
   ];
-
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-
-    performance = {
-      combinePlugins = {
-        enable = true;
-        standalonePlugins = [
-          "hmts.nvim"
-          "neorg"
-          "nvim-treesitter"
-          "blink.cmp"
-          "oil.nvim"
-        ];
-      };
-      byteCompileLua = {
-        enable = true;
-        configs = true;
-        luaLib = true;
-        nvimRuntime = true;
-        plugins = true;
-      };
-    };
-
-    viAlias = true;
-    vimAlias = true;
-
-    luaLoader.enable = true;
-
-    dependencies = {
-      chafa.enable = true;
-      imagemagick.enable = true;
-    };
+  nixpkgs = {
+    config.allowUnfree = true;
   };
 }

@@ -1,5 +1,6 @@
 {
-  oil = {
+  keymaps = import ./keymaps.nix;
+  plugins.oil = {
     enable = true;
     autoLoad = true;
     settings = {

@@ -1,6 +1,6 @@
 {
   project-nvim = {
-    enable = true;
+    enable = false;
     enableTelescope = true;
   };
 }

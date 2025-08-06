@@ -1,5 +1,5 @@
 {
-  comment = {
+  plugins.comment = {
     enable = true;
 
     settings = {

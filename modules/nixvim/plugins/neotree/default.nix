@@ -1,5 +1,6 @@
 {
-  neo-tree = {
+  keymaps = import ./keymaps.nix;
+  plugins.neo-tree = {
     enable = true;
     sources = [
       "filesystem"

@@ -1,5 +1,5 @@
 {
-  fidget = {
+  plugins.fidget = {
     enable = true;
     settings = {
       progress.display.progress_icon = [ "moon" ];

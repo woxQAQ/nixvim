@@ -1,5 +1,6 @@
 {
-  conform-nvim = {
+  keymaps = import ./keymaps.nix;
+  plugins.conform-nvim = {
     enable = true;
     settings = {
       default_format_opts.lsp_format = "prefer";

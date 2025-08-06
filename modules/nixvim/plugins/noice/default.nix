@@ -1,6 +1,8 @@
 {
-  noice = {
+  plugins.noice = {
     enable = true;
+
+    lazyLoad.settings.event = "DeferredUIEnter";
     settings = {
       notify = {
         enabled = true;

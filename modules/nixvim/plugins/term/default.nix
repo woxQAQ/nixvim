@@ -1,10 +1,11 @@
 {
-  toggleterm = {
+  keymaps = import ./keymaps.nix;
+  plugins.toggleterm = {
     enable = true;
 
     settings = {
       size = 20;
-      directly = "float";
+      direction = "float";
       float_opts = {
         border = "curved";
         height = 30;

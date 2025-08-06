@@ -1,5 +1,5 @@
 {
-  nvim-lightbulb = {
+  plugins.nvim-lightbulb = {
     enable = true;
     lazyLoad.settings.event = "DeferredUIEnter";
     settings = {
