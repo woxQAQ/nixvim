@@ -1,12 +1,17 @@
 {
-  plugins.lint = {
+  lint = {
     enable = true;
     lintersByFt = {
       go = [ "golangcilint" ];
       nix = [
-        "nix"
+        "deadnix"
         "statix"
       ];
+      yaml = [ "yamllint" ];
+      sh = [ "shellcheck" ];
+      make = [ "checkmake" ];
+      markdown = [ "markdownlint" ];
+      json = [ "jsonlint" ];
     };
   };
 }

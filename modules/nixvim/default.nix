@@ -1,22 +1,47 @@
-{ lib, ... }:
-let
-  by-name = ./plugins;
-  plugins = lib.attrsets.foldlAttrs (
-    prev: name: type:
-    prev ++ lib.lists.optional (type == "directory") (by-name + "/${name}")
-  ) [ ] (builtins.readDir by-name);
-in
+{ mylib, lib, ... }:
 {
-  imports = plugins ++ [
+  imports = [
+    ./plugins
     ./autocommands.nix
+    ./color.nix
     ./keymaps.nix
     ./options.nix
-    ./performance.nix
-    ./ft.nix
-    ./diagnostics.nix
+    ./todo.nix
     ./lsp.nix
   ];
-  nixpkgs = {
-    config.allowUnfree = true;
+
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+
+    performance = {
+      combinePlugins = {
+        enable = true;
+        standalonePlugins = [
+          "hmts.nvim"
+          "neorg"
+          "nvim-treesitter"
+          "blink.cmp"
+          "oil.nvim"
+        ];
+      };
+      byteCompileLua = {
+        enable = true;
+        configs = true;
+        luaLib = true;
+        nvimRuntime = true;
+        plugins = true;
+      };
+    };
+
+    viAlias = true;
+    vimAlias = true;
+
+    luaLoader.enable = true;
+
+    dependencies = {
+      chafa.enable = true;
+      imagemagick.enable = true;
+    };
   };
 }

@@ -1,13 +1,12 @@
 {
-  plugins.barbar = {
+  barbar = {
     enable = true;
     keymaps = {
       close.key = "<leader>bc";
       previous.key = "<leader>bh";
       next.key = "<leader>bl";
-      orderByName.key = "<leader>bon";
-      orderByDirectory.key = "<leader>bod";
-      pick.key = "<leader>bp";
+      orderByName.key = "<leader>bo";
+      pin.key = "<leader>bp";
     };
   };
 }

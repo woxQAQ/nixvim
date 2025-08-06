@@ -1,10 +1,11 @@
 {
+  keymaps = import ./keymaps.nix;
   plugins.trouble = {
     enable = true;
     lazyLoad.settings.cmd = [ "Trouble" ];
     settings = {
       auto_close = true;
-      mode = {
+      modes = {
         preview_split = {
           mode = "diagnostics";
           preview = {

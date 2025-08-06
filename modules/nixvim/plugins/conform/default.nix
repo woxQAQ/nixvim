@@ -1,28 +1,18 @@
 {
-  lib,
-  pkgs,
-  ...
-}:
-{
-  plugins.conform-nvim = {
+  conform-nvim = {
     enable = true;
-    lazyLoad.settings = {
-      cmd = [
-        "ConformInfo"
-      ];
-      event = [ "BufWritePre" ];
-    };
-    luaConfig.pre = ''
-      local slow_format_filetypes = {}
-    '';
     settings = {
-      default_format_opts = {
-        lsp_format = "fallback";
+      default_format_opts.lsp_format = "prefer";
+      formatters_by_ft = {
+        nix = [ "nixfmt" ];
+        rust = [ "rustfmt" ];
+        lua = [ "stylua" ];
+        python = [
+          "isort"
+          "ruff"
+        ];
       };
-      format_on_save = builtins.readFile ./format_on_save.lua;
-      format_after_save = builtins.readFile ./format_after_save.lua;
-      formatters_by_ft = import ./ft.nix;
-      formatter = import ./formatter.nix { inherit pkgs lib; };
+      formatters.stylua.command = "stylua";
       notify_on_error = false;
     };
   };

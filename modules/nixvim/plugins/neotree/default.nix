@@ -1,11 +1,6 @@
-{ config, ... }:
-let
-  inherit (config.plugins) yazi;
-in
 {
-  imports = [ ./keymaps.nix ];
-  plugins.neo-tree = {
-    enable = !yazi.enable;
+  neo-tree = {
+    enable = true;
     sources = [
       "filesystem"
       "buffers"
@@ -17,18 +12,15 @@ in
     closeIfLastWindow = true;
     window = {
       width = 30;
-      autoExpandWidth = false;
+      autoExpandWidth = true;
     };
     filesystem = {
       bindToCwd = false;
       followCurrentFile = {
         enabled = true;
-        leaveDirsOpen = false;
       };
       filteredItems = {
         hideDotfiles = false;
-        visible = true;
-        hideGitignored = false;
       };
     };
   };

@@ -1,7 +1,6 @@
 {
-  plugins.colorizer = {
+  colorizer = {
     enable = true;
-    lazyLoad.settings.cmd = "ColorizerToggle";
     settings.user_default_options.names = false;
     settings.filetypes = {
       css = {

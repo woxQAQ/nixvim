@@ -1,0 +1,5 @@
+{
+  avante = {
+    enable = true;
+  };
+}

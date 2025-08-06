@@ -1,12 +1,11 @@
 {
-  plugins.illuminate = {
+  illuminate = {
     enable = true;
     underCursor = true;
     filetypesDenylist = [
-      "dirvish"
-      "fugitive"
-      "neo-tree"
+      "Outline"
       "TelescopePrompt"
+      "reason"
     ];
   };
 }

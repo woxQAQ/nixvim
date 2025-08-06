@@ -1,7 +1,5 @@
-{ ... }:
 {
-  imports = [ ./keymaps.nix ];
-  plugins.oil = {
+  oil = {
     enable = true;
     autoLoad = true;
     settings = {
