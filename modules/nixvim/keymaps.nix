@@ -77,8 +77,7 @@ in
     maplocalleader = " ";
   };
   keymaps =
-    [ ]
-    ++ coreKeymaps
+    coreKeymaps
     ++ windowKeymaps
     ++ visualKeymaps
     ++ multiModeKeymaps

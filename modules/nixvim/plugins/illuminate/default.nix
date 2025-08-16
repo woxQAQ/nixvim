@@ -6,7 +6,7 @@
       "Outline"
       "TelescopePrompt"
       "reason"
-        "neo-tree"
+      "neo-tree"
       "fugitive"
     ];
   };
