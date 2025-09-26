@@ -49,35 +49,21 @@
     {
       event = "FileType";
       pattern = [
-        "tex" # inria
-        "latex" # inria
+        "tex"
+        "latex"
         "markdown"
       ];
       command = "setlocal spell spelllang=en";
     }
     {
-      event = "FileType";
-      pattern = "helm";
-      command = "LspRestart";
-    }
-    {
-      group = "restore_cursor";
-      event = [ "BufReadPost" ];
+      event = [
+        "FocusGained"
+        "BufEnter"
+        "CursorHold"
+        "CursorHoldI"
+      ];
       pattern = "*";
-      callback = {
-        __raw = ''
-          function()
-            if
-              vim.fn.line "'\"" > 1
-              and vim.fn.line "'\"" <= vim.fn.line "$"
-              and vim.bo.filetype ~= "commit"
-              and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
-            then
-              vim.cmd "normal! g`\""
-            end
-          end
-        '';
-      };
+      command = "if mode() != 'c' | checktime | endif";
     }
   ];
 }
