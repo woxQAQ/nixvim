@@ -6,7 +6,7 @@
     };
     lazyLoad.settings = {
       cmd = [
-        "Conformodules/khmInfo"
+        "Conform"
       ];
       event = [ "BufWritePre" ];
     };
