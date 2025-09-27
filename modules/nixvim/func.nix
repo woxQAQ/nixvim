@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, ... }:
 {
   config.nixvimlib.keys = rec {
     mkKeymap = mode: key: action: desc: {

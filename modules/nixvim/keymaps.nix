@@ -1,7 +1,3 @@
-{
-  lib,
-  ...
-}:
 let
   mkKeymap = mode: key: action: desc: {
     inherit mode key action;

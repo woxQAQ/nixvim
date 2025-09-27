@@ -1,23 +1,19 @@
 {
   perSystem =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       devShells.default = pkgs.mkShell {
+        name = "nixos config dev shells";
+        shellHook = ''
+          echo "check precommit install"
+          ${config.pre-commit.installationScript}
+        '';
         packages = with pkgs; [
-          deadnix
-          nixd
           nixfmt
-          statix
-          stylua
+          git
+          deadnix
+          ruff
         ];
-        shellHook = # sh
-          ''
-            echo "woxQAQ vim dev shells"
-            echo "Available commands"
-            echo "  deadnix -e    - check unused fix codes"
-            echo "  static fix .  - fix nix lint issues"
-            echo "  nixfmt .      - format nix files"
-          '';
       };
     };
 }

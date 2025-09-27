@@ -1,36 +1,16 @@
-{ inputs, lib, ... }:
-let
-  module = inputs.treefmt-nix;
-in
+{ inputs, ... }:
 {
-  imports = lib.optional (module ? flakeModule) module.flakeModule;
+  imports = [ inputs.treefmt-nix.flakeModule ];
   perSystem =
     { pkgs, ... }:
-    lib.optionalAttrs (module ? flakeModule) {
+    {
       treefmt = {
         flakeCheck = true;
         flakeFormatter = true;
-        projectRootFile = "flake.nix";
         programs = {
+          # keep-sorted start block=yes
           actionlint.enable = true;
-          biome = {
-            enable = true;
-            settings.formatter.formatWithErrors = true;
-          };
-          clang-format.enable = true;
           deadnix.enable = true;
-          deno = {
-            enable = true;
-            excludes = [
-              "*.ts"
-              "*.js"
-              "*.json"
-              "*.jsonc"
-            ];
-          };
-          fantomas.enable = true;
-          gofmt.enable = true;
-          isort.enable = true;
           keep-sorted.enable = true;
           nixfmt = {
             enable = true;
@@ -38,28 +18,26 @@ in
           };
           ruff-check.enable = true;
           ruff-format.enable = true;
-          rustfmt.enable = true;
           statix.enable = true;
-          stylua.enable = true;
-          taplo.enable = true;
-          yamlfmt.enable = true;
+          # keep-sorted end
         };
+        projectRootFile = "flake.nix";
         settings = {
+          nixfmt = {
+            options = [
+              "-w"
+              "80"
+            ];
+          };
           global.excludes = [
-            "*.editorconfig"
-            "*.envrc"
-            "*.git-blame-ignore-revs"
-            "*.gitattributes"
-            "*.gitconfig"
+            # keep-sorted start
             "*.gitignore"
-            "*.luacheckrc"
-            "*CODEOWNERS"
             "*LICENSE"
+            "*Makefile"
             "*flake.lock"
-            "assets/*"
-            "justfile"
+            ".envrc"
+            # keep-sorted end
           ];
-          formatter.ruff-format.options = [ "--isolated" ];
         };
       };
     };

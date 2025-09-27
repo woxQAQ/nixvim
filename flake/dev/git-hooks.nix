@@ -1,31 +1,33 @@
-{ inputs, lib, ... }:
-let
-  module = inputs.git-hooks-nix;
-in
+{ inputs, ... }:
 {
-  imports = lib.optional (module ? flakeModule) module.flakeModule;
-
+  imports = [
+    inputs.git-hooks.flakeModule
+  ];
   perSystem =
     { pkgs, ... }:
-    lib.optionalAttrs (module ? flakeModule) {
+    {
       pre-commit = {
         check.enable = true;
+        settings.excludes = [ "flake.lock" ];
+
         settings.hooks = {
-          actionlint.enable = true;
-          clang-tidy.enable = true;
+          # keep-sorted start block=yes
+          actionlint = {
+            enable = true;
+            package = pkgs.actionlint;
+          };
           deadnix = {
             enable = true;
-            settings.edit = true;
+            package = pkgs.deadnix;
+            settings = {
+              edit = true;
+            };
           };
-          eslint = {
+          statix = {
             enable = true;
-            packages = pkgs.eslint_d;
+            package = pkgs.statix;
           };
-          luacheck.enable = true;
-          pre-commit-hook-ensure-sops.enable = true;
-          statix.enable = true;
-          treefmt.enable = true;
-          typos.enable = true;
+          # keep-sorted end
         };
       };
     };

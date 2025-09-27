@@ -1,20 +1,21 @@
 {
   description = "dev flake";
   inputs = {
-    root.url = "path:../..";
-    nixpkgs.follows = "root/nixpkgs";
-    git-hooks-nix = {
+    # keep-sorted start block=yes newline_separated=yes
+    git-hooks = {
       url = "github:cachix/git-hooks.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        gitignore.follows = "";
-        flake-compat.follows = "";
-      };
+      inputs.nixpkgs.follows = "root/nixpkgs";
     };
+
+    nixpkgs.follows = "root/nixpkgs";
+
+    root.url = "path:../../";
+
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "root/nixpkgs";
     };
+    # keep-sorted end
   };
-  outputs = _: { };
+  outputs = _inputs: { };
 }
