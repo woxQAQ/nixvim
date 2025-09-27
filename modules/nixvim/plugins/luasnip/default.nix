@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 {
   plugins.luasnip = {
     enable = true;

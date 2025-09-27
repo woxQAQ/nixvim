@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
-  nixvimlib.keys = rec {
+  config.nixvimlib.keys = rec {
     mkKeymap = mode: key: action: desc: {
       inherit mode key action;
       options = {

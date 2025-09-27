@@ -1,3 +1,4 @@
+{ lib, pkgs, ... }:
 {
   plugins.iron = {
     enable = true;
@@ -5,6 +6,6 @@
       "IronRepl"
       "IronReplHere"
     ];
-    settings = import ./settings.nix;
+    settings = import ./settings.nix { inherit lib pkgs; };
   };
 }

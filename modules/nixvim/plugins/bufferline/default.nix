@@ -1,10 +1,10 @@
-{ config, lib, ... }:
+{ ... }:
 
 {
   plugins.bufferline = {
     enable = true;
     lazyLoad.settings.event = "DeferredUIEnter";
-    settings = builtins.readFile ./settings.nix;
+    settings = import ./settings.nix;
   };
-  keymaps = builtins.readFile ./keymaps.nix;
+  keymaps = import ./keymaps.nix;
 }

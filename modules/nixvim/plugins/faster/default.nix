@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, config, ... }:
 {
   plugins.faster = {
     enable = true;
@@ -8,6 +8,6 @@
         "DeferredUIEnter"
       ];
     };
-    settings = import ./settings.nix;
+    settings = import ./settings.nix { inherit lib config; };
   };
 }

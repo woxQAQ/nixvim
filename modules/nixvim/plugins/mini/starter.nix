@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 {
   plugins.mini-starter = {
     enable = true;

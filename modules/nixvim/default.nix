@@ -3,7 +3,7 @@ let
   inherit (builtins) readDir;
   _plugins = (
     lib.pipe (readDir ./plugins) [
-      (lib.filterAttrs (name: type: type == "directory"))
+      (lib.filterAttrs (_name: type: type == "directory"))
       lib.attrNames
       (map (name: ./plugins + "/${name}"))
     ]

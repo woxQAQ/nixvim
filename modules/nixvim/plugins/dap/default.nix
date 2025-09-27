@@ -41,7 +41,7 @@ in
       };
     };
 
-    configurations = import ./comfigurations.nix;
+    configurations = import ./comfigurations.nix { inherit lib config pkgs; };
     signs = {
       dapBreakpoint = {
         text = "";
@@ -65,5 +65,5 @@ in
       };
     };
   };
-  keymaps = lib.optionals (dap.enable && !dap.lazyLoad.enable) import ./keymaps.nix;
+  keymaps = lib.mkIf (dap.enable && !dap.lazyLoad.enable) (import ./keymaps.nix);
 }

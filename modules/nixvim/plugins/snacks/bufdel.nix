@@ -12,12 +12,8 @@
         vim.keymap.del('n', '<C-W><C-D>')
       '';
 
-  plugins = {
-    snacks = {
-      settings = {
-        bufdelete.enabled = true;
-      };
-    };
+  plugins.snacks.settings = {
+    bufdelete.enabled = true;
   };
 
   keymaps =

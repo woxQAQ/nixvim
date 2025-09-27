@@ -22,7 +22,7 @@
     };
   };
 
-  keymaps = lib.mkIf (config.khanelivim.tasks.runner == "overseer") [
+  keymaps = [
     {
       mode = "n";
       key = "<leader>RT";

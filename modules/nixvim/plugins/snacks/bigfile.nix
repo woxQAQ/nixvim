@@ -5,11 +5,7 @@
 }:
 {
   plugins.snacks.settings.bigfile = {
-    enabled = lib.elem config.khanelivim.performance.optimizer [
-      "snacks"
-      "both"
-    ];
-
+    enabled = true;
     size = 1024 * 1024; # 1MB
     setup.__raw = # lua
       ''
