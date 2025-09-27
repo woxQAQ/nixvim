@@ -2,6 +2,8 @@
   pkgs,
   ...
 }:
+
+# blink.cmp   config  →  import  Unexpected field in configuration!
 let
   mkBlinkPlugin =
     {
@@ -26,9 +28,7 @@ in
   ];
   plugins = {
     blink-cmp = {
-      settings = {
-        import = [ ./settings.nix ];
-      };
+      settings = import ./settings.nix;
       enable = true;
       lazyLoad.settings.event = [
         "InsertEnter"
