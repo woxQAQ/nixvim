@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   checks:
-    name: Build on ${{ matrix.system }}
+    name: Check on ${{ matrix.system }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
