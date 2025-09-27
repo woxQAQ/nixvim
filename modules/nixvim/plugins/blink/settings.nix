@@ -1,7 +1,5 @@
 {
-  menu = {
-    imports = [ ./menu.nix ];
-  };
+
   cmdline = {
     completion = {
       list.selection = {
@@ -18,6 +16,7 @@
     };
   };
   completion = {
+    menu = import ./menu.nix;
     keyword.range = "full";
     ghost_text.enabled = true;
     accept.auto_brackets = {
