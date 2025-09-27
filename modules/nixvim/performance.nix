@@ -4,9 +4,9 @@
     combinePlugins = {
       enable = true;
       standalonePlugins = with pkgs.vimPlugins; [
-        "hmts.nvim"
-        "blink.cmp"
         "nvim-treesitter"
+        "neotest"
+        overseer-nvim
         mini-nvim
       ];
     };
