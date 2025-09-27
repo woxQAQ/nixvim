@@ -1,13 +1,13 @@
+{ pkgs, ... }:
 {
   performance = {
     combinePlugins = {
       enable = true;
-      standalonePlugins = [
+      standalonePlugins = with pkgs.vimPlugins; [
         "hmts.nvim"
-        "neorg"
-        "nvim-treesitter"
         "blink.cmp"
-        "oil.nvim"
+        "nvim-treesitter"
+        mini-nvim
       ];
     };
     byteCompileLua = {
@@ -18,5 +18,4 @@
       plugins = true;
     };
   };
-
 }

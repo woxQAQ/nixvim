@@ -2,10 +2,10 @@
 let
   inherit (builtins) readDir;
   _plugins = lib.pipe (readDir ./plugins) [
-      (lib.filterAttrs (_name: type: type == "directory"))
-      lib.attrNames
-      (map (name: ./plugins + "/${name}"))
-    ];
+    (lib.filterAttrs (_name: type: type == "directory"))
+    lib.attrNames
+    (map (name: ./plugins + "/${name}"))
+  ];
 in
 {
   imports = _plugins ++ [

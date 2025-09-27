@@ -11,9 +11,6 @@
       event = [ "BufWritePre" ];
     };
 
-    # xdluaConfig.pre = ''
-    #   local slow_format_filetypes = {}
-    # '';
     settings = import ./settings.nix;
   };
   keymaps = import ./keymaps.nix;

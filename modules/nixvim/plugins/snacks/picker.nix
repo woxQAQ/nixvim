@@ -1,5 +1,9 @@
 { lib, config, ... }:
 {
+  imports = [
+    ./picker/git.nix
+    ./picker/lsp.nix
+  ];
   plugins.snacks.settings.picker = {
     sources = {
       noice = lib.mkIf config.plugins.noice.enable {

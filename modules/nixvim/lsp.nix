@@ -29,20 +29,20 @@
       dockerls.enable = true;
       gopls.enable = true;
       html.enable = true;
-      protols.enable = true;
       jsonls.enable = true;
-      nushell.enable = true;
-      marksman.enable = true;
-      sqls.enable = true;
       lua_ls.enable = true;
+      marksman.enable = true;
+      nushell.enable = true;
+      protols.enable = true;
       pyright.enable = true;
       ruff.enable = true;
+      sqls.enable = true;
       statix.enable = true;
-      yamlls.enable = true;
-      taplo.enable = true;
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
+      taplo.enable = true;
       ts_ls.enable = true;
+      yamlls.enable = true;
       # keep-sorted end
     };
   };

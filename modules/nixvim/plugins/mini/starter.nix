@@ -1,4 +1,3 @@
-_:
 {
   plugins.mini-starter = {
     enable = true;

@@ -47,7 +47,7 @@
     fileencoding = "utf-8"; # File-content encoding for the current buffer
     termguicolors = true; # Enables 24-bit RGB color in the |TUI|
     spell = true; # Highlight spelling mistakes (local to window)
-    spelling = [ "en_US" ];
+    spelllang = [ "en_us" ];
     wrap = false; # Prevent text from wrapping
 
     linebreak = true;
@@ -61,7 +61,7 @@
     lazyredraw = false;
     showtabline = 2;
     title = true;
-    virualedit = "block";
+    virtualedit = "block";
     writebackup = false;
 
     # Tab options

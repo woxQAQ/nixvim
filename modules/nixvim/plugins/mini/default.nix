@@ -8,18 +8,15 @@
   ];
 
   plugins = {
-    mini = {
-      enable = true;
-
-      modules = {
-        basics = { };
-        bracketed = { };
-        comment.mappings = {
-          comment = "<leader>/";
-          comment_line = "<leader>/";
-          comment_visual = "<leader>/";
-          textobject = "<leader>/";
-        };
+    mini.enable = true;
+    mini.modules = {
+      basics = { };
+      bracketed = { };
+      comment.mappings = {
+        comment = "<leader>/";
+        comment_line = "<leader>/";
+        comment_visual = "<leader>/";
+        textobject = "<leader>/";
       };
     };
 

@@ -5,6 +5,7 @@
   format_on_save = # lua
     ''
       function(bufnr)
+        local slow_format_filetypes = {}
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end
@@ -27,7 +28,7 @@
         end
 
         return { timeout_ms = 500, lsp_format = "fallback" }, on_format
-      end;
+      end
     '';
   format_after_save = # lua
     ''
