@@ -5,7 +5,7 @@
     "shfmt"
   ];
   c = [ "clang_format" ];
-  cmake = [ "cmake-format" ];
+  # cmake = [ "cmake-format" ];
   cpp = [ "clang_format" ];
   css = [ "stylelint" ];
   go = [ "golines" ];
