@@ -10,6 +10,9 @@
       ];
       event = [ "BufWritePre" ];
     };
+    luaConfig.pre = ''
+      local slow_format_filetypes = {}
+    '';
 
     settings = import ./settings.nix;
   };
