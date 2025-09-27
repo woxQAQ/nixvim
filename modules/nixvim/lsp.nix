@@ -1,7 +1,8 @@
 {
   imports = [
     ./lang/helm.nix
-    ./lang/nixd.nix
+    # ./lang/nixd.nix
+    ./lang/nil_ls.nix
   ];
   opts = {
     foldcolumn = "1";
@@ -37,7 +38,6 @@
       pyright.enable = true;
       ruff.enable = true;
       sqls.enable = true;
-      statix.enable = true;
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
       taplo.enable = true;
