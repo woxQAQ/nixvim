@@ -14,7 +14,6 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
       - run: nix build .#checks.x86_64-linux.treefmt
-      - run: nix build .#checks.aarch64-darwin.treefmt
   check-statix:
     name: check statix
     runs-on: ubuntu-latest
@@ -36,4 +35,4 @@ jobs:
           name: deadnix
       - uses: astro/deadnix-action@main
         with:
-          commit_message: "chore: remove dead code"
+          commit_message: "chore[cicd]: remove dead code"

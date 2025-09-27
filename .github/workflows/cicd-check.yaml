@@ -7,7 +7,7 @@ on:
   pull_request:
   workflow_dispatch:
 jobs:
-  build-dev-shells:
+  checks:
     name: Build on ${{ matrix.system }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -17,24 +17,19 @@ jobs:
           - system: x86_64-linux
             os: ubuntu-latest
           - system: aarch64-darwin
-            os: macos-latest
+            os: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@v12
       - name: Install Nix
         uses: cachix/install-nix-action@v31
         with:
           extra_nix_config: |
             auto-optimise-store = true
-            allow-import-from-derivation = false
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
             system = ${{ matrix.system }}
-      - name: Setup Cachix
-        uses: cachix/cachix-action@v16
-        with:
-          name: woxqaq
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build
-        run: |
-          nix build --accept-flake-config
+      - name: Run Flake Check
+        run: nix flake check --system ${{ matrix.system }}
