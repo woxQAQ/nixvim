@@ -6,4 +6,4 @@ fmt:
 check:
 	nix flake check
 run:
-	nix run
+	nix run --extra-experimental-features "flakes nix-command"

@@ -9,6 +9,7 @@ let
 in
 {
   imports = _plugins ++ [
+    # keep-sorted start
     ./autocommands.nix
     ./color.nix
     ./keymaps.nix
@@ -16,6 +17,7 @@ in
     ./options.nix
     ./performance.nix
     ./todo.nix
+    # keep-sorted end
   ];
   nixpkgs = {
     config.allowUnfree = true;

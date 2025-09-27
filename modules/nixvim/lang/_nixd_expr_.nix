@@ -39,9 +39,7 @@ let
   path = findFlake pwd;
 in
 {
-
   inherit system self path;
-
   local = if path == null then null else builtins.getFlake path;
   global = builtins.getFlake self;
 }

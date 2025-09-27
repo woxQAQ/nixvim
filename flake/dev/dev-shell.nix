@@ -8,6 +8,7 @@
           nixd
           nixfmt
           statix
+          stylua
         ];
         shellHook = # sh
           ''
