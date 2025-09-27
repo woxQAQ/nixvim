@@ -5,7 +5,6 @@
   ...
 }:
 {
-
   cmdline = {
     completion = {
       list.selection = {

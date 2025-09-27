@@ -1,4 +1,7 @@
-{ system, self, ... }:
+{
+  self,
+  system ? builtins.currentSystem,
+}:
 let
   inherit (builtins)
     isString
