@@ -1,4 +1,10 @@
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
   border = "rounded";
   draw = {
     snippet_indicator = "◦";
@@ -64,8 +70,16 @@
       ];
     };
     sources = {
-      default.__raw = import ./default_sources_lua.nix;
-      provider = import ./source_provider.nix;
+      default.__raw = import ./default_sources_lua.nix {
+        inherit
+          lib
+          pkgs
+          config
+          ;
+      };
+      provider = (import ./source_provider.nix) {
+        inherit lib config pkgs;
+      };
     };
   };
 

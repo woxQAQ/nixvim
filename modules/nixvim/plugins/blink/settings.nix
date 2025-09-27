@@ -1,4 +1,10 @@
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
 
   cmdline = {
     completion = {
@@ -16,7 +22,9 @@
     };
   };
   completion = {
-    menu = import ./menu.nix;
+    menu = import ./menu.nix {
+      inherit lib config pkgs;
+    };
     keyword.range = "full";
     ghost_text.enabled = true;
     accept.auto_brackets = {

@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
 
@@ -28,7 +30,9 @@ in
   ];
   plugins = {
     blink-cmp = {
-      settings = import ./settings.nix;
+      settings = import ./settings.nix {
+        inherit lib pkgs config;
+      };
       enable = true;
       lazyLoad.settings.event = [
         "InsertEnter"
