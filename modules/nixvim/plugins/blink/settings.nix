@@ -42,11 +42,12 @@
       TypeParameter = "";
     };
   };
+
   signature = {
     enabled = true;
     window.border = "rounded";
   };
-  snippets.preset = "mini_snippets";
+  snippets.preset = "luasnip";
   keymap = {
     preset = "enter";
     "<C-.>" = [
