@@ -1,4 +1,3 @@
-_:
 let
   mouse = {
     right = # lua
@@ -12,25 +11,27 @@ let
   };
 in
 {
+  # Failed to run 'after' hook for bufferline.nvim: ...imPackages/opt/bufferline.nvim/lua/bufferline/config.lua:0: attempt to call method 'mode' (a string value)
   mode = "buffers";
   always_show_bufferline = true;
   buffer_close_icon = "󰅖";
   close_command.__raw = mouse.close;
   close_icon = "";
   diagnostics = "nvim_lsp";
-  diagnostics_indicator = ''
-    function(count, level, diagnostics_dict, context)
-      local s = ""
-      for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " "
-          or (e == "warning" and " " or "" )
-        if(sym ~= "") then
-          s = s .. " " .. n .. sym
+  diagnostics_indicator = # lua
+    ''
+      function(count, level, diagnostics_dict, context)
+        local s = ""
+        for e, n in pairs(diagnostics_dict) do
+          local sym = e == "error" and " "
+            or (e == "warning" and " " or "" )
+          if(sym ~= "") then
+            s = s .. " " .. n .. sym
+          end
         end
+        return s
       end
-      return s
-    end
-  '';
+    '';
   enforce_regular_tabs = false;
   groups = {
     imports = [ ./group.nix ];
