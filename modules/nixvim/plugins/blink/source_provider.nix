@@ -14,7 +14,11 @@ let
     blink-ripgrep
     blink-cmp-spell
     ;
-  inherit (pkgs.vimPlugins) blink-cmp-npm-nvim blink-nerdfont-nvim blink-cmp-conventional-commits;
+  inherit (pkgs.vimPlugins)
+    blink-cmp-npm-nvim
+    blink-nerdfont-nvim
+    blink-cmp-conventional-commits
+    ;
 in
 {
   lsp.score_offset = 4;

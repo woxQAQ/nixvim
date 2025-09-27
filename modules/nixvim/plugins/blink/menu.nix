@@ -64,8 +64,8 @@
       ];
     };
     sources = {
-      default.__raw = builtins.readFile ./lua/default_sources_lua.nix;
-      provider = builtins.readFile ./lua/source_provider.nix;
+      default.__raw = import ./default_sources_lua.nix;
+      provider = import ./source_provider.nix;
     };
   };
 
