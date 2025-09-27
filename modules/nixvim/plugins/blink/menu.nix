@@ -5,6 +5,7 @@
   ...
 }:
 {
+  #  blink.cmp   completion  →  menu  →  draw  →  snippets  Unexpected field in configuration!
   border = "rounded";
   draw = {
     snippet_indicator = "◦";
@@ -35,52 +36,51 @@
         '';
       };
     };
-    fuzzy = {
-      implementation = "rust";
-      prebuilt_binaries = {
-        download = false;
-      };
-    };
-    appearance = {
-      use_nvim_cmp_as_default = true;
-      kind_icons = {
-        Copilot = "";
-
-        Text = "";
-        Field = "";
-        Variable = "";
-
-        Class = "";
-        Interface = "";
-
-        TypeParameter = "";
-      };
-    };
-    signature = {
-      enabled = true;
-      window.border = "rounded";
-    };
-    snippets.preset = "mini_snippets";
-    keymap = {
-      preset = "enter";
-      "<C-.>" = [
-        "show"
-        "show_documentation"
-        "hide_documentation"
-      ];
-    };
-    sources = {
-      default.__raw = import ./default_sources_lua.nix {
-        inherit
-          lib
-          pkgs
-          config
-          ;
-      };
-      provider = (import ./source_provider.nix) {
-        inherit lib config pkgs;
-      };
+  };
+  fuzzy = {
+    implementation = "rust";
+    prebuilt_binaries = {
+      download = false;
     };
   };
+  appearance = {
+    use_nvim_cmp_as_default = true;
+    kind_icons = {
+      Copilot = "";
 
+      Text = "";
+      Field = "";
+      Variable = "";
+
+      Class = "";
+      Interface = "";
+
+      TypeParameter = "";
+    };
+  };
+  signature = {
+    enabled = true;
+    window.border = "rounded";
+  };
+  snippets.preset = "mini_snippets";
+  keymap = {
+    preset = "enter";
+    "<C-.>" = [
+      "show"
+      "show_documentation"
+      "hide_documentation"
+    ];
+  };
+  sources = {
+    default.__raw = import ./default_sources_lua.nix {
+      inherit
+        lib
+        pkgs
+        config
+        ;
+    };
+    provider = (import ./source_provider.nix) {
+      inherit lib config pkgs;
+    };
+  };
 }
