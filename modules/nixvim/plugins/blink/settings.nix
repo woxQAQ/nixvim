@@ -19,7 +19,7 @@
   };
   completion = {
     keyword.range = "full";
-    ghost_test.enabled = true;
+    ghost_text.enabled = true;
     accept.auto_brackets = {
       override_brackets_for_filetypes = {
         lua = [
