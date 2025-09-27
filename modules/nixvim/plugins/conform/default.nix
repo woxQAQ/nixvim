@@ -11,11 +11,11 @@
       event = [ "BufWritePre" ];
     };
 
-    xdluaConfig.pre = ''
-      local slow_format_filetypes = {}
-    '';
-    settings = builtins.readFile ./settings.nix;
+    # xdluaConfig.pre = ''
+    #   local slow_format_filetypes = {}
+    # '';
+    settings = import ./settings.nix;
   };
-  keymaps = builtins.readFile ./keymaps.nix;
-  userCommands = builtins.readFile ./format_cmd.nix;
+  keymaps = import ./keymaps.nix;
+  userCommands = import ./format_cmd.nix;
 }

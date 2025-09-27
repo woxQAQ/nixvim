@@ -20,10 +20,6 @@ let
     // (removeAttrs args [ "enable" ]);
 in
 {
-  meta.blink = {
-    description = "blink is a nvim-cmp alternate to provide completion options";
-    kind = "coding";
-  };
   extraPlugins = with pkgs.vimPlugins; [
     blink-cmp-avante
     blink-cmp-conventional-commits

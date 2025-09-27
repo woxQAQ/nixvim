@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  dap-go = {
+  plugins.dap-go = {
     enable = true;
     settings.delve.path = "${lib.getExe pkgs.delve}";
   };

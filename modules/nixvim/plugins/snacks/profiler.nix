@@ -30,12 +30,8 @@
 
       );
 
-  plugins = {
-    snacks = {
-      settings = {
-        profiler.enabled = true;
-      };
-    };
+  plugins.snacks.settings = {
+    profiler.enabled = true;
   };
 
 }

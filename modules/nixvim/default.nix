@@ -1,11 +1,13 @@
 { lib, ... }:
 let
   inherit (builtins) readDir;
-  inherit (lib.attrsets) foldAttrs;
-  _plugins = foldAttrs (
-      prev: name: type:
-      prev ++ lib.lists.optional (type == "directory") (./plugins + "/${name}")
-    ) [ ] (readDir ./plugins);
+  _plugins = (
+    lib.pipe (readDir ./plugins) [
+      (lib.filterAttrs (name: type: type == "directory"))
+      lib.attrNames
+      (map (name: ./plugins + "/${name}"))
+    ]
+  );
 in
 {
   imports = _plugins ++ [
@@ -16,7 +18,6 @@ in
     ./lsp.nix
     ./options.nix
     ./performance.nix
-    ./todo.nix
     # keep-sorted end
   ];
   nixpkgs = {

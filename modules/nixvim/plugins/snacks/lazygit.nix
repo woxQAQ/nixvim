@@ -4,12 +4,8 @@
   ...
 }:
 {
-  plugins = {
-    snacks = {
-      settings = {
-        lazygit.enabled = true;
-      };
-    };
+  plugins.snacks.settings = {
+    lazygit.enabled = true;
   };
 
   keymaps =

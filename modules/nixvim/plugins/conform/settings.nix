@@ -43,5 +43,5 @@
         return { lsp_fallback = true }
       end
     '';
-  formatters_by_ft = builtins.readFile ./formatter.nix;
+  formatters_by_ft = import ./formatter.nix;
 }

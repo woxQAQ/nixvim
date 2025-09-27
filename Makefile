@@ -1,6 +1,6 @@
 .PHONY: bump fmt check run
 bump:
-	nix flake update
+	nix flake update --extra-experimental-features "flakes nix-command"
 fmt:
 	nix fmt
 check:

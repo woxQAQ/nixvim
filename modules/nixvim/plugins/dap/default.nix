@@ -22,17 +22,25 @@ in
   ];
   plugins.dap = {
     enable = true;
-    imports = [ ./lazy.nix ];
-    servers.codelldb = rec {
-      port = 13000;
-      executable = {
-        command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-        args = [
-          "--port"
-          "${port}"
-        ];
+    lazyLoad.settings = import ./lazy.nix;
+    adapters = {
+      servers.codelldb = rec {
+        port = 13000;
+        executable = {
+          command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+          args = [
+            "--port"
+            "${toString port}"
+          ];
+        };
+      };
+      executables = {
+        lldb = {
+          command = lib.getExe' pkgs.lldb "lldb-dap";
+        };
       };
     };
+
     configurations = import ./comfigurations.nix;
     signs = {
       dapBreakpoint = {

@@ -5,6 +5,6 @@
 
     lazyLoad.settings.event = "DeferredUIEnter";
     lintersByFt = import ./by-lang.nix;
-    linters = ./linters.nix;
+    linters = import ./linters.nix;
   };
 }

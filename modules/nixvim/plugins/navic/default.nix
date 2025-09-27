@@ -1,5 +1,4 @@
 {
-  meta.navic = {};
   plugins.navic = {
     enable = true;
 

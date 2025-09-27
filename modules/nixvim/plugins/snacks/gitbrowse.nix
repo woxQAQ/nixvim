@@ -4,12 +4,8 @@
   ...
 }:
 {
-  plugins = {
-    snacks = {
-      settings = {
-        gitbrowse.enabled = true;
-      };
-    };
+  plugins.snacks.settings = {
+    gitbrowse.enabled = true;
   };
 
   keymaps =

@@ -1,6 +1,6 @@
 { lib, config, ... }:
 {
-  plugins.snack.settings.picker = {
+  plugins.snacks.settings.picker = {
     sources = {
       noice = lib.mkIf config.plugins.noice.enable {
         confirm = [
