@@ -18,20 +18,20 @@ in
   close_command.__raw = mouse.close;
   close_icon = "";
   diagnostics = "nvim_lsp";
-  diagnostics_indicator = # lua
-    ''
-      function(count, level, diagnostics_dict, context)
-        local s = ""
-        for e, n in pairs(diagnostics_dict) do
-          local sym = e == "error" and " "
-            or (e == "warning" and " " or "" )
-          if(sym ~= "") then
-            s = s .. " " .. n .. sym
-          end
-        end
-        return s
-      end
-    '';
+  # diagnostics_indicator = # lua
+  #   ''
+  #     function(count, level, diagnostics_dict, context)
+  #       local s = ""
+  #       for e, n in pairs(diagnostics_dict) do
+  #         local sym = e == "error" and " "
+  #           or (e == "warning" and " " or "" )
+  #         if(sym ~= "") then
+  #           s = s .. " " .. n .. sym
+  #         end
+  #       end
+  #       return s
+  #     end
+  #   '';
   enforce_regular_tabs = false;
   groups = {
     imports = [ ./group.nix ];

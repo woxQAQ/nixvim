@@ -1,12 +1,17 @@
 NIX_FLAG = --extra-experimental-features "flakes nix-command"
+NIX = nix $(NIX_FLAG)
 .PHONY: bump fmt check run
 bump:
-	nix flake update $(NIX_FLAG)
+	$(NIX) flake update
 
 fmt:
-	nix fmt $(NIX_FLAG)
+	$(NIX) fmt
 
 check: fmt
-	nix flake check $(NIX_FLAG)
+	$(NIX) flake check
 run:
-	nix run $(NIX_FLAG)
+	$(NIX) run
+repl:
+	$(NIX) repl
+eval:
+	$(NIX) eval
