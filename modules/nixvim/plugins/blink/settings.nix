@@ -58,13 +58,13 @@
 
   # FIXME blink.cmp   completion  →  menu  →  sources  Unexpected field in configuration!
   sources = {
-    default.__raw = import ./default_sources_lua.nix {
-      inherit
-        lib
-        pkgs
-        config
-        ;
-    };
+    # default.__raw = import ./default_sources_lua.nix {
+    #   inherit
+    #     lib
+    #     pkgs
+    #     config
+    #     ;
+    # };
     providers = (import ./source_provider.nix) {
       inherit lib config pkgs;
     };
