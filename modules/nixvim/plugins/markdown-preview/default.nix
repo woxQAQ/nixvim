@@ -1,4 +1,3 @@
-{ config, lib, ... }:
 {
   plugins.markdown-preview = {
     enable = true;
@@ -9,14 +8,5 @@
     };
   };
 
-  keymaps = lib.mkIf config.plugins.markdown-preview.enable [
-    {
-      mode = "n";
-      key = "<leader>pm";
-      action = "<cmd>MarkdownPreview<cr>";
-      options = {
-        desc = "Markdown Preview";
-      };
-    }
-  ];
+  keymaps = import ./keymaps.nix;
 }
