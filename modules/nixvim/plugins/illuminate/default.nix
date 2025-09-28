@@ -1,4 +1,5 @@
 {
+  _meta = "";
   plugins = {
     illuminate = {
       enable = true;
