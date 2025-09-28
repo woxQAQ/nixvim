@@ -1,2 +1,3 @@
 description: bufferline privide the editor buffer line on the top
-kind: ui
+kind:
+  - ui
