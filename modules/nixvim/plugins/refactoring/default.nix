@@ -64,11 +64,6 @@
             "logger.debug(\"%s\");"
             "log.debug(\"%s\");"
           ];
-          cs = [
-            "Console.WriteLine($\"[DEBUG] %s\");"
-            "Debug.WriteLine($\"[DEBUG] %s\");"
-            "_logger.LogDebug(\"%s\");"
-          ];
         };
 
         # Custom print var statements (variable name and value)
@@ -114,11 +109,6 @@
             "System.out.println(\"%s: \" + %s);"
             "logger.debug(\"%s: {}\", %s);"
             "System.out.printf(\"%s: %%s%%n\", %s);"
-          ];
-          cs = [
-            "Console.WriteLine($\"%s: {%s}\");"
-            "Debug.WriteLine($\"%s: {%s}\");"
-            "_logger.LogDebug(\"%s: {Variable}\", %s);"
           ];
         };
       };

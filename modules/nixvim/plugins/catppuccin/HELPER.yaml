@@ -1,2 +1,5 @@
-description: catppuccin is a Soothing pastel theme aims to be the middle ground between low and high-contrast themes
-kind: theme
+description: |
+  catppuccin is a Soothing pastel theme aims to be the middle ground
+  between low and high-contrast themes
+kind:
+  - theme

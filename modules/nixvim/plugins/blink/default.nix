@@ -4,8 +4,6 @@
   config,
   ...
 }:
-
-# blink.cmp   config  →  import  Unexpected field in configuration!
 let
   mkBlinkPlugin =
     {
@@ -22,12 +20,6 @@ let
     // (removeAttrs args [ "enable" ]);
 in
 {
-  # extraPlugins = with pkgs.vimPlugins; [
-  #   blink-cmp-avante
-  #   blink-cmp-conventional-commits
-  #   blink-cmp-npm-nvim
-  #   blink-nerdfont-nvim
-  # ];
   plugins = {
     blink-cmp = {
       settings = import ./settings.nix {
