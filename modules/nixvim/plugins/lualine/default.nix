@@ -38,7 +38,7 @@
 
         globalstatus = true;
       };
+      sections = import ./sections.nix;
     };
-    sections = import ./sections.nix;
   };
 }
