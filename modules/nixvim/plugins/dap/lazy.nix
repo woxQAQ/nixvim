@@ -1,6 +1,4 @@
 {
-  # NOTE: Couldn't get lazy loading to work any other way...
-  # Hate plugins that require this verbosity for lazy load
   keys = [
     {
       __unkeyed-1 = "<leader>db";

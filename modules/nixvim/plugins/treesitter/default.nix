@@ -8,7 +8,7 @@
     treesitter = {
       enable = true;
 
-      folding = true;
+      # folding = true;
       nixvimInjections = true;
 
       settings = {

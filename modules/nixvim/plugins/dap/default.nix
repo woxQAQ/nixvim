@@ -41,7 +41,7 @@ in
       };
     };
 
-    configurations = import ./comfigurations.nix { inherit lib config pkgs; };
+    # configurations = import ./comfigurations.nix { inherit lib config pkgs; };
     signs = {
       dapBreakpoint = {
         text = "";
