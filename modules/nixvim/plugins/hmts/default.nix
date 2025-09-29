@@ -1,10 +1,8 @@
 {
-  plugins = {
-    hmts = {
-      # inherit (config.plugins.treesitter) enable;
-      enable = false;
+  plugins.hmts = {
+    # inherit (config.plugins.treesitter) enable;
+    enable = false;
 
-      lazyLoad.settings.ft = "nix";
-    };
+    lazyLoad.settings.ft = "nix";
   };
 }

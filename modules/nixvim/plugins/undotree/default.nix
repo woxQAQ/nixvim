@@ -1,4 +1,3 @@
-{ config, lib, ... }:
 {
   plugins = {
     undotree = {
@@ -26,14 +25,5 @@
     };
   };
 
-  keymaps = lib.mkIf config.plugins.undotree.enable [
-    {
-      mode = "n";
-      key = "<leader>uu";
-      action = "<cmd>UndotreeToggle<CR>";
-      options = {
-        desc = "Undotree toggle";
-      };
-    }
-  ];
+  keymaps = import ./keymaps.nix;
 }

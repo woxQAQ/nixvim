@@ -8,6 +8,7 @@ let
   }) keymaps;
 in
 {
+  plugins.sqlite-lua.enable = true;
   plugins.yanky = {
     enable = true;
     lazyLoad = {

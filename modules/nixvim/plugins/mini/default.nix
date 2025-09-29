@@ -5,6 +5,7 @@
   imports = [
     ./starter.nix
     ./surround.nix
+    ./maps.nix
   ];
 
   plugins = {
