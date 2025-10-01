@@ -1,5 +1,6 @@
 NIX_FLAG = --extra-experimental-features "flakes nix-command"
 NIX = nix $(NIX_FLAG)
+
 .PHONY: bump fmt check run
 bump:
 	$(NIX) flake update

@@ -3,9 +3,6 @@
   self,
   ...
 }:
-let
-  nvlib = import ../lib;
-in
 {
   imports = [
     inputs.nixvim.flakeModules.default
@@ -32,7 +29,6 @@ in
               inputs
               system
               self
-              nvlib
               ;
           };
 

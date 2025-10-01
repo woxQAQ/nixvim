@@ -8,6 +8,7 @@
     foldcolumn = "1";
     foldlevel = 99;
     foldlevelstart = -1;
+    foldmethod = "marker";
     foldenable = true;
   };
 

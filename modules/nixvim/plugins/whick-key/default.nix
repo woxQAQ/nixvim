@@ -1,6 +1,6 @@
 {
   plugins.which-key = {
-    enable = true;
+    enable = false;
     lazyLoad.settings.event = "DeferredUIEnter";
   };
 }

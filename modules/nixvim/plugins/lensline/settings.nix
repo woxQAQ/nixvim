@@ -36,4 +36,5 @@
     max_lenses = 100;
   };
   debounce_ms = 300;
+  debug_mode = false;
 }

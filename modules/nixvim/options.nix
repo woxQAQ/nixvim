@@ -4,6 +4,7 @@
     loaded_ruby_provider = 0; # Ruby
     loaded_perl_provider = 0; # Perl
     loaded_python_provider = 0; # Python 2
+    snacks_animate = false;
   };
   clipboard = {
     # Use system clipboard
@@ -13,6 +14,7 @@
       package = pkgs.wl-clipboard;
     };
   };
+
   opts = {
     updatetime = 100; # Faster completion
 
@@ -83,6 +85,7 @@
       horiz = "━";
       horizup = "┻";
       horizdown = "┳";
+
       vert = "┃";
       vertleft = "┫";
       vertright = "┣";
@@ -97,5 +100,15 @@
 
       msgsep = "‾";
     };
+    list = true;
+    listchars = {
+      tab = "  ";
+      extends = "⟫";
+      precedes = "⟪";
+      conceal = "";
+      nbsp = "␣";
+      trail = "·";
+    };
   };
+
 }

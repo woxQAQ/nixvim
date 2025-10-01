@@ -1,9 +1,3 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
 let
   mkBlinkPlugin =
     {
@@ -22,9 +16,7 @@ in
 {
   plugins = {
     blink-cmp = {
-      settings = import ./settings.nix {
-        inherit lib pkgs config;
-      };
+      settings = import ./settings.nix;
       enable = true;
       lazyLoad.settings.event = [
         "InsertEnter"
@@ -33,7 +25,6 @@ in
     };
     blink-cmp-dictionary = mkBlinkPlugin { };
     blink-cmp-git = mkBlinkPlugin { };
-    # blink-cmp-spell = mkBlinkPlugin { };
     blink-emoji = mkBlinkPlugin { };
     blink-ripgrep = mkBlinkPlugin { };
   };

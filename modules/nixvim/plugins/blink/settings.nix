@@ -1,10 +1,4 @@
 {
-  lib,
-  config,
-  pkgs,
-  ...
-}:
-{
   cmdline = {
     completion = {
       list.selection = {
@@ -70,15 +64,9 @@
   sources = {
     default = [
       "lsp"
-      "buffer"
       "path"
-      "git"
-      "calc"
-      "omni"
+      "buffer"
     ];
-    providers = (import ./source_provider.nix) {
-      inherit lib config pkgs;
-    };
   };
   completion = {
     menu = import ./menu.nix;
