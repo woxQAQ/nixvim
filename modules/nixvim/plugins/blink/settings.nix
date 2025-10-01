@@ -67,18 +67,18 @@
 
     keyword.range = "full";
     ghost_text.enabled = true;
-    accept.auto_brackets = {
-      override_brackets_for_filetypes = {
-        lua = [
-          "{"
-          "}"
-        ];
-        nix = [
-          "{"
-          "}"
-        ];
-      };
-    };
+    # accept.auto_brackets = {
+    #   override_brackets_for_filetypes = {
+    #     lua = [
+    #       "{"
+    #       "}"
+    #     ];
+    #     nix = [
+    #       "{"
+    #       "}"
+    #     ];
+    #   };
+    # };
     documentation = {
       auto_show = true;
       window.border = "rounded";
