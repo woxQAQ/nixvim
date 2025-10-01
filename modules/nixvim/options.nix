@@ -56,7 +56,7 @@
     autoread = true;
     winborder = "rounded";
     startofline = true;
-    showmatch = true;
+    # showmatch = true;
     synmaxcol = 240;
     lazyredraw = false;
     showtabline = 2;

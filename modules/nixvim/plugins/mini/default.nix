@@ -6,6 +6,7 @@
     ./starter.nix
     ./surround.nix
     ./maps.nix
+    ./pairs.nix
   ];
 
   plugins = {
