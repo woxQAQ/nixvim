@@ -37,11 +37,6 @@
       __unkeyed-1 = "progress";
     }
   ];
-  lualine_z = [
-    {
-      __unkeyed-1 = "location";
-    }
-  ];
   #
   # lualine_y = [
   #   (lib.mkIf config.plugins.aerial.enable {
