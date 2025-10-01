@@ -20,6 +20,12 @@
         comment_visual = "<leader>/";
         textobject = "<leader>/";
       };
+      indentscope = {
+        symbol = "│";
+        options = {
+          try_as_border = true;
+        };
+      };
     };
 
     mini-ai.enable = true;
