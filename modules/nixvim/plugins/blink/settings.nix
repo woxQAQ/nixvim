@@ -49,15 +49,33 @@
   snippets.preset = "luasnip";
   keymap = {
     preset = "enter";
-    "<C-.>" = [
-      "show"
-      "show_documentation"
-      "hide_documentation"
+    "<A-Tab>" = [
+      "snippet_forward"
+      "fallback"
+    ];
+    "<A-S-Tab>" = [
+      "snippet_backward"
+      "fallback"
+    ];
+    "<Tab>" = [
+      "select_next"
+      "fallback"
+    ];
+    "<S-Tab>" = [
+      "select_prev"
+      "fallback"
     ];
   };
 
-  # FIXME blink.cmp   completion  →  menu  →  sources  Unexpected field in configuration!
   sources = {
+    default = [
+      "lsp"
+      "buffer"
+      "path"
+      "git"
+      "calc"
+      "omni"
+    ];
     providers = (import ./source_provider.nix) {
       inherit lib config pkgs;
     };
@@ -84,7 +102,7 @@
       window.border = "rounded";
     };
     list.selection = {
-      auto_insert = false;
+      auto_insert = true;
       preselect = false;
     };
   };
