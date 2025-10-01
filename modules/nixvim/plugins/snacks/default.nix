@@ -24,4 +24,6 @@
       };
     };
   };
+
+  keymaps = import ./keymaps.nix;
 }
