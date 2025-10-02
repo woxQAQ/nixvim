@@ -8,4 +8,5 @@
     ];
     settings = import ./settings.nix { inherit lib pkgs; };
   };
+  keymaps = import ./keymaps.nix;
 }
