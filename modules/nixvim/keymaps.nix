@@ -21,7 +21,7 @@ let
 
   # File operations
   fileKeymaps = [
-    (mkKeymap "n" "<leader>s" ":w<CR>" "Save file")
+    # (mkKeymap "n" "<leader>s" ":w<CR>" "Save file")
     (mkKeymap "n" "<leader>q" ":q<CR>" "Quit file")
     (mkKeymap "n" "<leader>wq" ":wq<CR>" "Save and quit")
     (mkKeymap "n" "<leader>qq" ":qa!<CR>" "Quit all without saving")
