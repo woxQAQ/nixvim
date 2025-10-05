@@ -16,9 +16,12 @@
   };
 
   opts = {
-    updatetime = 100; # Faster completion
-    relativenumber = true; # Relative line numbers
-    number = true; # Display the absolute line number of the current line
+    # Faster completion
+    updatetime = 100;
+    # Relative line numbers
+    relativenumber = true;
+    # Display the absolute line number of the current line
+    number = true;
 
     hidden = true; # Keep closed buffer open in the background
     mouse = "a"; # Enable mouse control

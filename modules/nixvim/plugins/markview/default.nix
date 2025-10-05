@@ -15,6 +15,7 @@
       settings = {
         preview = {
           inherit filetypes;
+          icon_privider = "mini";
 
           ignore_buftypes = [ ];
 
