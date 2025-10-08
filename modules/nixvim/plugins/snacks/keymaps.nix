@@ -18,6 +18,15 @@
 
   {
     mode = "n";
+    key = "gb";
+    action = ''<cmd>lua Snacks.picker.history_back()<cr>'';
+    options = {
+      desc = "go back";
+    };
+  }
+
+  {
+    mode = "n";
     key = "<leader>fa";
     action = ''<cmd>lua Snacks.picker.autocmds()<cr>'';
     options = {

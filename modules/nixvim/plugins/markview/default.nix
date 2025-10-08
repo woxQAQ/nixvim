@@ -8,7 +8,7 @@
       ];
     in
     {
-      enable = true;
+      enable = false;
 
       lazyLoad.settings.ft = filetypes;
 
