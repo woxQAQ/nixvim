@@ -1,5 +1,11 @@
-NIX_FLAG = --extra-experimental-features "flakes nix-command"
-NIX = nix $(NIX_FLAG)
+OS := $(shell uname)
+
+ifeq ($(OS),Darwin)
+	NIX_FLAG = --extra-experimental-features "flakes nix-command"
+	NIX = nix $(NIX_FLAG)
+else
+	NIX = nix
+endif
 
 .PHONY: bump fmt check run
 bump:
