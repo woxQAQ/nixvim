@@ -6,7 +6,13 @@
   clangtidy.cmd = lib.getExe' pkgs.clang-tools "clang-tidy";
   clippy.cmd = lib.getExe pkgs.rust-analyzer;
   deadnix.cmd = lib.getExe pkgs.deadnix;
-  golangcilint.cmd = lib.getExe pkgs.golangci-lint;
+  golangcilint = {
+    cmd = lib.getExe pkgs.golangci-lint;
+    args = [
+      "-v"
+      "--debug"
+    ];
+  };
   htmlhint.cmd = lib.getExe pkgs.htmlhint;
   jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
   luacheck.cmd = lib.getExe pkgs.luaPackages.luacheck;
