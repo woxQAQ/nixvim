@@ -4,7 +4,7 @@
   cmake = [ "cmakelint" ];
   cpp = [ "clangtidy" ];
   gdscript = [ "gdlint" ];
-  go = [ "golangcilint" ];
+  # go = [ "golangcilint" ];
   html = [ "htmlhint" ];
   java = [ "checkstyle" ];
   json = [ "jsonlint" ];
