@@ -1,8 +1,8 @@
 {
   imports = [
     ./lang/helm.nix
-    # ./lang/nixd.nix
-    ./lang/nil_ls.nix
+    ./lang/nixd.nix
+    # ./lang/nil_ls.nix
   ];
   opts = {
     foldcolumn = "1";

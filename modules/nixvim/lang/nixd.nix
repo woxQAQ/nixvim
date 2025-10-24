@@ -17,7 +17,7 @@ in
 {
   lsp.servers.nixd = {
     enable = true;
-    settings.settings.nixd = {
+    config.settings.nixd = {
       formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
       nixpkgs.expr = withFlake ''
         import (if local ? lib.version then local else local.inputs.nixpkgs or global.inputs.nixpkgs) { }

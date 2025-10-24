@@ -5,6 +5,8 @@
     loaded_perl_provider = 0; # Perl
     loaded_python_provider = 0; # Python 2
     snacks_animate = false;
+    disable_diagnostics = false;
+    disable_autoformat = false;
   };
   clipboard = {
     # Use system clipboard

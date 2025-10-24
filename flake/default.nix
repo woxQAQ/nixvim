@@ -1,11 +1,14 @@
 {
   inputs,
+  self,
+  lib,
   ...
 }:
 {
   imports = [
     inputs.flake-parts.flakeModules.partitions
     ./nixvim.nix
+    ./overlays.nix
   ];
   partitions = {
     dev = {
@@ -27,9 +30,10 @@
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
+        overlays = lib.attrValues self.overlays;
         config = {
           allowUnfree = true;
-          allowAliases = false;
+          # allowAliases = false;
         };
       };
       packages.default = config.packages.woxqaqVim;

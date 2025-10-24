@@ -18,11 +18,11 @@ let
     list:
     let
       len = length list;
-      dropped = genList (elemAt list) (len - 1);
+      last = genList (elemAt list) (len - 1);
     in
-    if list == [ ] || len == 1 then [ ] else dropped;
+    if list == [ ] || len == 1 then [ ] else last;
   ispart = part: isString part && part != "" && part != ".";
-  parts = dir: filter ispart (split "/+" dir);
+  getParts = dir: filter ispart (split "/+" dir);
   findFlake' =
     parts:
     let
@@ -37,7 +37,7 @@ let
       dir
     else
       findFlake' parent;
-  findFlake = dir: findFlake' (parts dir);
+  findFlake = dir: findFlake' (getParts dir);
   pwd = getEnv "PWD";
   path = findFlake pwd;
 in

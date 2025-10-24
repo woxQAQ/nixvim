@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, self, ... }:
 let
   inherit (builtins) readDir;
   _plugins = lib.pipe (readDir ./plugins) [
@@ -12,6 +12,7 @@ in
     # keep-sorted start
     ./autocommands.nix
     ./color.nix
+    ./diagnostics.nix
     ./keymaps.nix
     ./lsp.nix
     ./options.nix
@@ -19,6 +20,10 @@ in
     # keep-sorted end
   ];
   nixpkgs = {
-    config.allowUnfree = true;
+    overlays = lib.attrValues self.overlays;
+    config = {
+      allowUnfree = true;
+      allowAliases = false;
+    };
   };
 }

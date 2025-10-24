@@ -12,7 +12,7 @@ bump:
 	$(NIX) flake update
 
 fmt:
-	$(NIX) fmt
+	@$(NIX) fmt
 
 check: fmt
 	$(NIX) flake check
