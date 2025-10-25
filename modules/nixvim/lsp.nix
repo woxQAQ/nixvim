@@ -19,7 +19,7 @@
     inlayHints.enable = true;
     servers = {
       "*" = {
-        settings = {
+        config = {
           capabilities.textDocuments.semanticTokens.multilineTokenSupport = true;
           root_markers = [ ".git" ];
         };
