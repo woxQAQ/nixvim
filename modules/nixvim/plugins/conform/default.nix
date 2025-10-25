@@ -3,10 +3,7 @@
   plugins.conform-nvim = {
     enable = true;
     autoInstall = {
-      enable = true;
-      overrides = {
-        swift_format = lib.mkIf pkgs.stdenv.hostPlatform.isLinux null;
-      };
+      enable = false;
     };
     lazyLoad.settings = {
       cmd = [
