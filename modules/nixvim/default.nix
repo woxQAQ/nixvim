@@ -14,6 +14,7 @@ in
     ./color.nix
     ./diagnostics.nix
     ./keymaps.nix
+    ./ft.nix
     ./lsp.nix
     ./options.nix
     ./performance.nix

@@ -17,5 +17,5 @@
     settings = import ./settings.nix;
   };
   keymaps = import ./keymaps.nix;
-  userCommands = import ./format_cmd.nix;
+  # userCommands = import ./format_cmd.nix;
 }

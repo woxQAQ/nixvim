@@ -14,7 +14,6 @@
 
   plugins.lspconfig.enable = true;
   # plugins.lsp-signature.enable = true;
-
   lsp = {
     inlayHints.enable = true;
     servers = {
