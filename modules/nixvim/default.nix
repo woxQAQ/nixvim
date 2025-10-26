@@ -13,8 +13,8 @@ in
     ./autocommands.nix
     ./color.nix
     ./diagnostics.nix
-    ./keymaps.nix
     ./ft.nix
+    ./keymaps.nix
     ./lsp.nix
     ./options.nix
     ./performance.nix
