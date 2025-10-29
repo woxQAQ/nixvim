@@ -13,11 +13,11 @@
           enabled = true;
           cache_max_files = 100;
         }
-        # {
-        #   name = "diagnostics";
-        #   enabled = true;
-        #   min_level = "HINT";
-        # }
+        {
+          name = "diagnostics";
+          enabled = true;
+          min_level = "HINT";
+        }
         # {
         #   name = "complexity";
         #   enabled = true;

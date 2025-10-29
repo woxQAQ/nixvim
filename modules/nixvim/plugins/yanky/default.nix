@@ -26,6 +26,9 @@ in
         ignore_registers = [ "_" ];
         update_register_on_cycle = false;
       };
+      system_clipboard = {
+        sync_with_ring = false;
+      };
     };
   };
 }

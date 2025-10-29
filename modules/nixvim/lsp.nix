@@ -31,7 +31,6 @@
       gopls.enable = true;
       html.enable = true;
       jsonls.enable = true;
-      lua_ls.enable = true;
       marksman.enable = true;
       nushell.enable = true;
       protols.enable = true;
