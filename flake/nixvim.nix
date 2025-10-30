@@ -10,7 +10,7 @@
 
   nixvim = {
     packages.enable = true;
-    checks.enable = true;
+    checks.enable = false;
   };
 
   flake.nixvimModules = {
