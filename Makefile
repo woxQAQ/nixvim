@@ -1,4 +1,5 @@
 OS := $(shell uname)
+SYSTEM := $(shell echo "$$(uname -m)-$$(uname | tr '[:upper:]' '[:lower:]')")
 
 ifeq ($(OS),Darwin)
 	NIX_FLAG = --extra-experimental-features "flakes nix-command"
@@ -13,6 +14,9 @@ bump:
 
 fmt:
 	@$(NIX) fmt
+
+ci:
+	$(NIX) build .#checks.$(SYSTEM).treefmt
 
 check: fmt
 	$(NIX) flake check
