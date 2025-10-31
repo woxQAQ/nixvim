@@ -1,10 +1,8 @@
 { lib, inputs, ... }:
 let
-  files = lib.pipe ../overlays [
-    builtins.readDir
-    (lib.filterAttrs (name: type: type == "regular" && lib.hasSuffix ".nix" name))
-    builtins.attrNames
-  ];
+  # Read the overlays directory and pick `.nix` files deterministically.
+  allFiles = builtins.attrNames (builtins.readDir ../overlays);
+  files = lib.filter (name: lib.hasSuffix ".nix" name) allFiles;
 in
 {
   flake.overlays = lib.listToAttrs (
