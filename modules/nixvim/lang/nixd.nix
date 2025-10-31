@@ -1,24 +1,8 @@
-{
-  lib,
-  pkgs,
-  self,
-  ...
-}:
-let
-  inherit (builtins) toFile toJSON;
-  inherit (pkgs.stdenv.hostPlatform) system;
-  wrapper =
-    toFile "expr.nix"
-      #nix
-      ''
-        import ${./_nixd_expr_.nix} {
-          self = ${toJSON self};
-          system = ${toJSON system};
-        }
-      '';
-
-  withFlake = expr: "with import ${wrapper}; " + expr;
-in
+# {
+#   pkgs,
+#   self,
+#   ...
+# }:
 {
   lsp.servers.nixd = {
     enable = true;
