@@ -7,6 +7,8 @@
     ./gitbrowse.nix
     ./lazygit.nix
     ./profiler.nix
+    ./terminal.nix
+    ./image.nix
   ];
   plugins.snacks = {
     enable = true;
@@ -14,6 +16,10 @@
       image.enabled = true;
       indent.enabled = true;
       scroll.enabled = true;
+      scope = {
+        enabled = true;
+        treesitter.blocks.enabled = true;
+      };
       statuscolumn = {
         enabled = true;
 

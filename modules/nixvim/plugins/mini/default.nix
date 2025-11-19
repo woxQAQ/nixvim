@@ -28,7 +28,7 @@
       };
     };
 
-    mini-ai.enable = true;
+    mini-ai.enable = false;
     mini-align.enable = true;
     mini-icons = {
       enable = true;
