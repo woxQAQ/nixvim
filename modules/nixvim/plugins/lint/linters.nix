@@ -13,7 +13,7 @@
   #   ];
   # };
   htmlhint.cmd = lib.getExe pkgs.htmlhint;
-  jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
+  # jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
   luacheck.cmd = lib.getExe pkgs.luaPackages.luacheck;
   markdownlint.cmd = lib.getExe pkgs.markdownlint-cli;
   nix.cmd = lib.getExe' pkgs.nix "nix-instantiate";
