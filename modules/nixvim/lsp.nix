@@ -36,6 +36,7 @@
       protols.enable = true;
       pyright.enable = true;
       ruff.enable = true;
+      rust_analyzer.enable = true;
       sqls.enable = true;
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
