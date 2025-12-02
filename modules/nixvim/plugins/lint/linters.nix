@@ -4,7 +4,7 @@
   checkmake.cmd = lib.getExe pkgs.checkmake;
   checkstyle.cmd = lib.getExe pkgs.checkstyle;
   clangtidy.cmd = lib.getExe' pkgs.clang-tools "clang-tidy";
-  clippy.cmd = lib.getExe pkgs.rust-analyzer;
+  clippy.cmd = lib.getExe pkgs.clippy;
   deadnix.cmd = lib.getExe pkgs.deadnix;
   # golangcilint = {
   #   cmd = lib.getExe pkgs.golangci-lint;
