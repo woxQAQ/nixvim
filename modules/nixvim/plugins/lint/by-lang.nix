@@ -7,7 +7,7 @@
   # go = [ "golangcilint" ];
   html = [ "htmlhint" ];
   java = [ "checkstyle" ];
-  json = [ "jsonlint" ];
+  # json = [ "jsonlint" ];
   lua = [ "luacheck" ];
   make = [ "checkmake" ];
   markdown = [ "markdownlint" ];
