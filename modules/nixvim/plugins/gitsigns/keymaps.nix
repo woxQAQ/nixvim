@@ -1,5 +1,7 @@
+# ╭──────────────────────────────────────────────────────────╮
+# │                    toggle keybinding                     │
+# ╰──────────────────────────────────────────────────────────╯
 [
-  # UI binds
   {
     mode = "n";
     key = "<leader>ugb";
@@ -56,71 +58,46 @@
       desc = "Signs toggle";
     };
   }
+]
+#          ╭──────────────────────────────────────────────────────────╮
+#          │    hunk bind                                             │
+#          ╰──────────────────────────────────────────────────────────╯
+++ [
   {
     mode = "n";
-    key = "<leader>gb";
-    action.__raw = ''
-      function() require("gitsigns").blame_line{full=true} end
-    '';
-    options = {
-      desc = "Git Blame toggle";
-      silent = true;
-    };
-  }
-  # Hunk binds
-  {
-    mode = "n";
-    key = "<leader>ghp";
-    action.__raw = # lua
-      ''
-        function()
-          if vim.wo.diff then return ${builtins.toJSON "<leader>gp"} end
-
-          vim.schedule(function() require("gitsigns").prev_hunk() end)
-
-          return '<Ignore>'
-        end
-      '';
-    options = {
-      desc = "Previous hunk";
-      silent = true;
-    };
-  }
-  {
-    mode = "n";
-    key = "<leader>ghn";
-    action.__raw = # lua
-      ''
-        function()
-          if vim.wo.diff then
-            return ${builtins.toJSON "<leader>gn"}
-          end
-
-          vim.schedule(function() require("gitsigns").next_hunk() end)
-
-          return '<Ignore>'
-        end
-      '';
-    options = {
-      desc = "Next hunk";
-      silent = true;
-    };
-  }
-  {
-    mode = [
-      "n"
-      "v"
-    ];
     key = "<leader>ghs";
-    action = "<cmd>Gitsigns stage_hunk<CR>";
+    action.__raw = ''
+      function()
+        require('gitsigns').stage_hunk()
+        vim.notify('Hunk staged', vim.log.levels.INFO, { title = 'Gitsigns' })
+      end
+    '';
     options = {
       desc = "Stage hunk";
     };
   }
   {
+    mode = "v";
+    key = "<leader>ghs";
+    action.__raw = ''
+      function()
+        require('gitsigns').stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        vim.notify('Selected lines staged', vim.log.levels.INFO, { title = 'Gitsigns' })
+      end
+    '';
+    options = {
+      desc = "Stage Hunk";
+    };
+  }
+  {
     mode = "n";
     key = "<leader>ghu";
-    action = "<cmd>Gitsigns undo_stage_hunk<CR>";
+    action.__raw = ''
+      function()
+        require('gitsigns').undo_stage_hunk()
+        vim.notify('Hunk unstaged', vim.log.levels.INFO, { title = 'Gitsigns' })
+      end
+    '';
     options = {
       desc = "Undo stage hunk";
     };
@@ -145,20 +122,98 @@
     };
   }
   {
+    mode = [
+      "n"
+      "v"
+    ];
+    key = "<leader>ghp";
+    action = "<cmd>Gitsigns preview_hunk<CR>";
+    options = {
+      desc = "Preview Hunk";
+    };
+  }
+  {
     mode = "n";
-    key = "<leader>gh<C-p>";
+    key = "<leader>ghi";
     action = "<cmd>Gitsigns preview_hunk_inline<CR>";
     options = {
       desc = "Preview hunk inline";
     };
   }
-  # Buffer binds
+]
+++ [
+  {
+    mode = "n";
+    key = "<leader>gb";
+    action.__raw = ''
+      function() require("gitsigns").blame_line{full=true} end
+    '';
+    options = {
+      desc = "Git Blame toggle";
+      silent = true;
+    };
+  }
+
+  {
+    mode = "n";
+    key = "<leader>ghQ";
+    action = "<cmd>Gitsigns setqflist all<CR>";
+    options = {
+      desc = "Set Quickfix List All";
+    };
+  }
+  {
+    mode = "n";
+    key = "<leader>ghq";
+    action = "<cmd>Gitsigns setqflist<CR>";
+    options = {
+      desc = "Set Quickfix List";
+    };
+  }
+
+  {
+    mode = [
+      "o"
+      "x"
+    ];
+    key = "ih";
+    action = "<cmd>Gitsigns select_hunk<CR>";
+    options = {
+      desc = "Select Hunk";
+    };
+  }
+]
+#          ╭──────────────────────────────────────────────────────────╮
+#          │    buffer bind                                           │
+#          ╰──────────────────────────────────────────────────────────╯
+++ [
+  {
+    mode = "n";
+    key = "<leader>gU";
+    action.__raw = ''
+      function()
+        local file = vim.fn.expand('%')
+        vim.fn.system('git restore --staged ' .. file)
+        require('gitsigns').refresh()
+        vim.notify('Unstaged ' .. file, vim.log.levels.INFO, { title = 'Gitsigns' })
+      end
+    '';
+    options = {
+      desc = "Unstage Buffer";
+    };
+  }
   {
     mode = "n";
     key = "<leader>gS";
-    action = "<cmd>Gitsigns stage_buffer<CR>";
+    action.__raw = ''
+      function()
+        require('gitsigns').stage_buffer()
+        local file = vim.fn.expand('%')
+        vim.notify('Staged ' .. file, vim.log.levels.INFO, { title = 'Gitsigns' })
+      end
+    '';
     options = {
-      desc = "Stage buffer";
+      desc = "Stage Buffer";
     };
   }
   {
@@ -167,6 +222,49 @@
     action = "<cmd>Gitsigns reset_buffer<CR>";
     options = {
       desc = "Reset buffer";
+    };
+  }
+]
+#          ╭──────────────────────────────────────────────────────────╮
+#          │    nav bind                                              │
+#          ╰──────────────────────────────────────────────────────────╯
+++ [
+  {
+    mode = "n";
+    key = "]c";
+    action.__raw = ''
+      function()
+        if vim.wo.diff then
+          return ']c'
+        end
+        vim.schedule(function()
+          require('gitsigns').nav_hunk('next')
+        end)
+        return '<Ignore>'
+      end
+    '';
+    options = {
+      expr = true;
+      desc = "Next Hunk";
+    };
+  }
+  {
+    mode = "n";
+    key = "[c";
+    action.__raw = ''
+      function()
+        if vim.wo.diff then
+          return '[c'
+        end
+        vim.schedule(function()
+          require('gitsigns').nav_hunk('prev')
+        end)
+        return '<Ignore>'
+      end
+    '';
+    options = {
+      expr = true;
+      desc = "Previous Hunk";
     };
   }
 ]
