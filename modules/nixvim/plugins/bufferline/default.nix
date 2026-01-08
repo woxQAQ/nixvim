@@ -5,6 +5,7 @@ _: {
   # };
   plugins.bufferline = {
     enable = true;
+    lazyLoad.settings.event = "DeferredUIEnter";
     settings.options = rec {
       diagnostics = "nvim_lsp";
       # buffer_close_icon = "󰅙";
