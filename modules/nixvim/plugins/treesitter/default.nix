@@ -8,7 +8,7 @@
       enable = true;
 
       folding.enable = true;
-      nixvimInjections = true;
+      # nixvimInjections = true;
 
       settings = {
         highlight = {

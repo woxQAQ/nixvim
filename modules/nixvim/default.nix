@@ -10,6 +10,7 @@ in
 {
   imports = _plugins ++ [
     # keep-sorted start
+    ../woxvim
     ./autocommands.nix
     ./color.nix
     ./diagnostics.nix
