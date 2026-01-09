@@ -41,7 +41,7 @@
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
       taplo.enable = true;
-      ts_ls.enable = true;
+      # ts_ls.enable = true;
       yamlls.enable = true;
       # keep-sorted end
     };
