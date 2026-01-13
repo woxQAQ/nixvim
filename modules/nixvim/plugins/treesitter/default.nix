@@ -14,6 +14,10 @@
 
     treesitter-context = {
       inherit (config.plugins.treesitter) enable;
+      lazyLoad.settings.event = [
+        "BufReadPost"
+        "BufNewFile"
+      ];
       settings = {
         max_lines = 4;
         min_window_height = 40;
@@ -22,27 +26,6 @@
       };
     };
 
-    # treesitter-refactor is deprecated and incompatible with modern nvim-treesitter
-    # treesitter-refactor = {
-    #   inherit (config.plugins.treesitter) enable;
-    #   settings = {
-    #     highlightDefinitions = {
-    #       enable = true;
-    #       clearOnCursorMove = true;
-    #     };
-    #     smartRename = {
-    #       enable = true;
-    #       keymaps = {
-    #         smartRename = "gR";
-    #       };
-    #     };
-    #     navigation = {
-    #       enable = true;
-    #     };
-    #   };
-    #
-    # };
   };
-
   keymaps = import ./keymaps.nix;
 }
