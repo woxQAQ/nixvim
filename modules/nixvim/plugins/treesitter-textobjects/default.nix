@@ -3,7 +3,7 @@ let
   hasMiniAi = config.plugins.mini-ai.enable;
 in
 {
-  plugins.treesitter-textobjexts = {
+  plugins.treesitter-textobjects = {
     enable = true;
     settings = {
       # Disable 'select' if mini-ai is enabled to avoid conflict on 'a'/'i' keys
