@@ -14,7 +14,6 @@
         provider = "claude-code";
         acp_providers = {
           claude-code = {
-            model = "glm4.7";
             env = {
               ANTHROPIC_API_KEY.__raw = ''os.getenv("ANTHROPIC_API_KEY")'';
               ANTHROPIC_BASE_URL.__raw = ''os.getenv("ANTHROPIC_BASE_URL")'';
