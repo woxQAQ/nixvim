@@ -1,6 +1,6 @@
 {
   plugins.claude-code = {
-    enable = true;
+    enable = false;
     lazyLoad.settings.cmd = [
       "ClaudeCode"
       "ClaudeCodeContinue"
