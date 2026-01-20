@@ -16,5 +16,7 @@
     };
   };
 
-  keymaps = lib.mkIf config.plugins.claude-code.enable import ./keymaps.nix;
+  config = lib.mkIf config.plugins.claude-code.enable {
+    keymaps = import ./keymaps.nix;
+  };
 }
