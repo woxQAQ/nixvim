@@ -1,4 +1,4 @@
-{ lib, config }:
+{ lib, config, ... }:
 {
   plugins.claude-code = {
     enable = false;
