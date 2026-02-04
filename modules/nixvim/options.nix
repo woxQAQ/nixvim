@@ -1,4 +1,3 @@
-{ lib, pkgs, ... }:
 {
   globals = {
     loaded_ruby_provider = 0; # Ruby
@@ -11,10 +10,6 @@
   clipboard = {
     # Use system clipboard
     register = "unnamedplus";
-    providers.wl-copy = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-      enable = true;
-      package = pkgs.wl-clipboard;
-    };
   };
 
   opts = {
