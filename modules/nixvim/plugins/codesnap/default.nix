@@ -1,13 +1,4 @@
 { pkgs, ... }:
-let
-  save_path =
-    if pkgs.stdenv.isLinux then
-      "$XDG_PICTURES_DIR/screenshots"
-    else if pkgs.stdenv.isDarwin then
-      "$HOME/Pictures"
-    else
-      "";
-in
 {
   plugins.codesnap = {
     enable = true;
@@ -19,14 +10,22 @@ in
       "CodeSnapSaveHighlight"
     ];
     settings = {
-      inherit save_path;
-      code_font_family = "Maple Mono NF CN";
-      mac_window_bar = true;
-      title = "CodeSnap.nvim";
-      watermark = "";
-      breadcrumbs_separator = "/";
-      has_breadcrumbs = true;
-      has_line_number = false;
+      snapshot_config = {
+        code_config = {
+          font_family = "MonaspiceNe Nerd Font";
+          breadcrumbs = {
+            enable = true;
+            separator = "/";
+          };
+        };
+        show_line_number = false;
+        snapshot_config = {
+          window = {
+            mac_window_bar = true;
+          };
+        };
+        watermark.content = "";
+      };
     };
   };
   keymaps = import ./keymaps.nix;
