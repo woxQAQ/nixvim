@@ -14,10 +14,26 @@
         info = " ";
         hint = "󰝶 ";
       };
+      diagnostics_color = {
+        error = {
+          fg = "#ed8796";
+        };
+        warn = {
+          fg = "#eed49f";
+        };
+        info = {
+          fg = "#8aadf4";
+        };
+        hint = {
+          fg = "#a6da95";
+        };
+      };
+      colored = true;
     }
   ];
 
   lualine_x = [
+    { __raw = "Snacks.profiler.status()"; }
     {
       __unkeyed-1 = "filetype";
       icon_only = true;
@@ -29,7 +45,6 @@
     }
     {
       __unkeyed-1 = "filename";
-      path = 1;
     }
   ];
   lualine_y = [

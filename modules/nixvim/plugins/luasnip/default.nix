@@ -1,6 +1,7 @@
 {
   plugins.luasnip = {
     enable = true;
+    lazyLoad.settings.event = "InsertEnter";
     settings = {
       snippets = {
         expand.__raw = "function(snippet) require('luasnip').lsp_expand(snippet) end";

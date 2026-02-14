@@ -14,6 +14,7 @@ in
     ./autocommands.nix
     ./color.nix
     ./diagnostics.nix
+    ./dependencies.nix
     ./ft.nix
     ./keymaps.nix
     ./lsp.nix

@@ -68,7 +68,9 @@ let
   # Visual mode keymaps
   visualKeymaps = [
     (mkKeymap "v" ">" ">gv" "Indent and keep selection")
+    (mkKeymap "v" "<Tab>" ">gv" "Indent and keep selection")
     (mkKeymap "v" "<" "<gv" "Unindent and keep selection")
+    (mkKeymap "v" "<S-Tab>" "<gv" "Unindent and keep selection")
     (mkKeymap "v" "K" ":m '<-2<CR>gv=gv" "Move selection up")
     (mkKeymap "v" "J" ":m '>+1<CR>gv=gv" "Move selection down")
     (mkKeymap "v" "<leader>s" ":sort<CR>" "Sort selection")

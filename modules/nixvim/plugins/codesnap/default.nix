@@ -12,7 +12,7 @@
     settings = {
       snapshot_config = {
         code_config = {
-          font_family = "MonaspiceNe Nerd Font";
+          font_family = "Maple Mono NF CN";
           breadcrumbs = {
             enable = true;
             separator = "/";

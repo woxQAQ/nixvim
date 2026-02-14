@@ -16,6 +16,11 @@
   };
   fuzzy = {
     implementation = "rust";
+    sorts = [
+      "exact"
+      "score"
+      "sort_text"
+    ];
     prebuilt_binaries = {
       download = false;
     };
@@ -70,7 +75,16 @@
   };
   completion = {
     menu = import ./menu.nix;
-
+    trigger = {
+      prefetch_on_insert = true;
+      show_on_backspace = true;
+      # Disabled: Prefer manual completion control with <C-.>
+      # Uncomment to auto-show after typing these characters:
+      # show_on_x_blocked_trigger_characters = [
+      #   " "
+      #   ";"
+      # ];
+    };
     keyword.range = "full";
     ghost_text.enabled = true;
     accept.auto_brackets = {
@@ -87,10 +101,11 @@
     };
     documentation = {
       auto_show = true;
+      auto_show_delay_ms = 200;
       window.border = "rounded";
     };
     list.selection = {
-      auto_insert = true;
+      auto_insert = false;
       preselect = false;
     };
   };

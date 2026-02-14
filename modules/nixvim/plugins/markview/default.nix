@@ -2,15 +2,26 @@
   plugins.markview =
     let
       filetypes = [
+        "Avante"
+        "codecompanion"
         "latex"
         "markdown"
         "md"
+        "norg"
+        "org"
+        "quarto"
+        "rmd"
+        "typst"
+        "vimwiki"
       ];
     in
     {
-      enable = false;
+      enable = true;
 
-      lazyLoad.settings.ft = filetypes;
+      lazyLoad.settings = {
+        cmd = "Markview";
+        ft = filetypes;
+      };
 
       settings = {
         preview = {

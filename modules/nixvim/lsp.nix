@@ -2,6 +2,7 @@
   imports = [
     ./lang/helm.nix
     ./lang/nixd.nix
+    ./lang/typos.nix
     # ./lang/nil_ls.nix
   ];
   opts = {
@@ -25,7 +26,19 @@
       };
       # keep-sorted start
       bashls.enable = true;
-      biome.enable = true;
+      biome = {
+        enable = true;
+        config.filetypes = [
+          "javascript"
+          "javascriptreact"
+          "typescript"
+          "typescriptreact"
+          "json"
+          "jsonc"
+          "css"
+          "html"
+        ];
+      };
       cssls.enable = true;
       dockerls.enable = true;
       gopls.enable = true;

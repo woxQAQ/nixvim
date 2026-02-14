@@ -3,9 +3,12 @@
     loaded_ruby_provider = 0; # Ruby
     loaded_perl_provider = 0; # Perl
     loaded_python_provider = 0; # Python 2
-    snacks_animate = false;
     disable_diagnostics = false;
     disable_autoformat = false;
+    spell_enabled = true;
+    colorizing_enabled = false;
+    first_buffer_opened = false;
+    whitespace_character_enabled = false;
   };
   clipboard = {
     # Use system clipboard

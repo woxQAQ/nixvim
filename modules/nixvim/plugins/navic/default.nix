@@ -2,8 +2,10 @@
   plugins.navic = {
     enable = true;
 
-    lazyLoad.settings.event = "DeferredUIEnter";
-
+    lazyLoad.settings.event = [
+      "BufReadPost"
+      "BufNewFile"
+    ];
     settings = {
       lsp = {
         auto_attach = true;
