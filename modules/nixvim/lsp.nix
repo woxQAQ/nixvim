@@ -47,7 +47,12 @@
       marksman.enable = true;
       nushell.enable = true;
       protols.enable = true;
-      pyright.enable = true;
+      ty = {
+        enable = true;
+      };
+      # pyright = {
+      #   enable = true;
+      # };
       ruff.enable = true;
       rust_analyzer.enable = true;
       sqls.enable = true;
