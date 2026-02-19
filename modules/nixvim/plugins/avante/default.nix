@@ -11,16 +11,6 @@
       lazyLoad.settings.event = [ "DeferredUIEnter" ];
 
       settings = {
-        provider = "claude-code";
-        acp_providers = {
-          claude-code = {
-            model = "claude-sonnet-4-5";
-            env = {
-              ANTHROPIC_API_KEY.__raw = ''os.getenv("ANTHROPIC_API_KEY")'';
-              ANTHROPIC_BASE_URL.__raw = ''os.getenv("ANTHROPIC_BASE_URL")'';
-            };
-          };
-        };
         # Define our own mappings under correct prefix
         mappings = {
           ask = "<leader>aaa";
