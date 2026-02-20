@@ -21,7 +21,6 @@
   markdown = [ "deno_fmt" ];
   nix = [ "nixfmt" ];
   python = [
-    "isort"
     "ruff"
   ];
   rust = [ "rustfmt" ];

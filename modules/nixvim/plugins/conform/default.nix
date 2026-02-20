@@ -2,11 +2,11 @@
   plugins.conform-nvim = {
     enable = true;
     autoInstall = {
-      enable = false;
+      enable = true;
     };
     lazyLoad.settings = {
       cmd = [
-        "Conform"
+        "ConformInfo"
       ];
       event = [ "BufWritePre" ];
     };
@@ -17,5 +17,5 @@
     settings = import ./settings.nix;
   };
   keymaps = import ./keymaps.nix;
-  # userCommands = import ./format_cmd.nix;
+  userCommands = import ./format_cmd.nix;
 }

@@ -1,11 +1,24 @@
 [
   {
     action.__raw = ''
-      function()
-        require("conform").format{lsp_fallback=true}
+      function(args)
+        vim.cmd({cmd="Conform",args=args})
       end
     '';
-    key = "<leader>cf";
+    mode = "v";
+    key = "<leader>lf";
+    options = {
+      silent = true;
+      desc = "Format selection";
+    };
+  }
+  {
+    action.__raw = ''
+      function()
+        vim.cmd({cmd="Conform"})
+      end
+    '';
+    key = "<leader>lf";
     options = {
       silent = true;
       desc = "Format buffer";
