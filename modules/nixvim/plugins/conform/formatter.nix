@@ -20,9 +20,7 @@
   lua = [ "stylua" ];
   markdown = [ "deno_fmt" ];
   nix = [ "nixfmt" ];
-  python = [
-    "ruff"
-  ];
+  python = [ "ruff_format" ];
   rust = [ "rustfmt" ];
   sh = [
     "shellcheck"
