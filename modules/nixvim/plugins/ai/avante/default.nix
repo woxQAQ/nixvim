@@ -6,7 +6,7 @@
 {
   plugins = {
     avante = {
-      enable = true;
+      enable = false;
 
       lazyLoad.settings.event = [ "DeferredUIEnter" ];
 
