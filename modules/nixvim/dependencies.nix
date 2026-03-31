@@ -16,7 +16,6 @@
         || config.plugins.codecompanion.enable
         || config.plugins.sidekick.enable
         || config.plugins.claude-code.enable
-        || config.plugins.claudecode.enable
         || config.plugins.opencode.enable
       )
       [
