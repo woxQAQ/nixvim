@@ -52,7 +52,7 @@
       # };
       ruff.enable = true;
       vue_ls.enable = true;
-      ts_ls.enable = true;
+      vtsls.enable = true;
       rust_analyzer.enable = true;
       sqls.enable = true;
       stylelint_lsp.enable = true;

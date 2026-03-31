@@ -4,7 +4,7 @@
 { pkgs, ... }:
 {
   plugins.typescript-tools = {
-    enable = false;
+    enable = true;
     settings.settings = {
       code_lens = "off";
       complete_function_calls = false;
