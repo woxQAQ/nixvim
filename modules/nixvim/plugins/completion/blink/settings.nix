@@ -1,53 +1,28 @@
 {
   cmdline = {
     completion = {
-      list.selection = {
-        preselect = false;
-      };
       menu.auto_show = true;
     };
     keymap = {
-      preset = "enter";
-      "<CR>" = [
-        "accept_and_enter"
+      "<Enter>" = [
+        "select_and_accept"
         "fallback"
       ];
     };
   };
   fuzzy = {
-    implementation = "rust";
-    sorts = [
-      "exact"
-      "score"
-      "sort_text"
-    ];
-    prebuilt_binaries = {
-      download = false;
-    };
+    implementation = "prefer_rust_with_warning";
   };
   appearance = {
-    use_nvim_cmp_as_default = true;
-    kind_icons = {
-      Copilot = "";
-
-      Text = "";
-      Field = "";
-      Variable = "";
-
-      Class = "";
-      Interface = "";
-
-      TypeParameter = "";
-    };
+    nerd_font_variant = "moni";
   };
-
-  # signature = {
-  #   enabled = true;
-  #   window.border = "rounded";
-  # };
   snippets.preset = "luasnip";
   keymap = {
-    preset = "enter";
+    preset = "default";
+    "<Enter>" = [
+      "select_and_accept"
+      "fallback"
+    ];
     "<A-Tab>" = [
       "snippet_forward"
       "fallback"
@@ -71,43 +46,40 @@
       "lsp"
       "path"
       "buffer"
+      "omni"
     ];
-  };
-  completion = {
-    menu = import ./menu.nix;
-    trigger = {
-      prefetch_on_insert = true;
-      show_on_backspace = true;
-      # Disabled: Prefer manual completion control with <C-.>
-      # Uncomment to auto-show after typing these characters:
-      # show_on_x_blocked_trigger_characters = [
-      #   " "
-      #   ";"
-      # ];
-    };
-    keyword.range = "full";
-    ghost_text.enabled = true;
-    accept.auto_brackets = {
-      override_brackets_for_filetypes = {
-        lua = [
-          "{"
-          "}"
+    providers = {
+      dictionary = {
+        module = "blink-cmp-dictionary";
+        name = "blink-cmp-dictionary";
+        score_offset = 0;
+        dictionary_search_threshold = 3;
+        definition_pointers = [
+          "!"
+          "&"
+          "^"
         ];
-        nix = [
-          "{"
-          "}"
+      };
+      thesaurus = {
+        module = "blink-cmp-words.thesaurus";
+        name = "Thesaurus";
+        score_offset = 0;
+        similarity_depth = 2;
+        definition_pointers = [
+          "!"
+          "&"
+          "^"
+        ];
+        similarity_pointers = [
+          "&"
+          "^"
         ];
       };
     };
+  };
+  completion = {
     documentation = {
       auto_show = true;
-      auto_show_delay_ms = 200;
-      window.border = "rounded";
-    };
-    list.selection = {
-      auto_insert = false;
-      preselect = false;
     };
   };
-
 }

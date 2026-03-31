@@ -1,3 +1,5 @@
+# Blink.cmp - 用 Rust 编写的高性能自动补全引擎，
+# 支持代码补全、路径补全、字典补全等，是 coc.nvim 和 nvim-cmp 的现代替代方案
 let
   mkBlinkPlugin =
     {
@@ -23,9 +25,7 @@ in
         "CmdlineEnter"
       ];
     };
+    blink-cmp-words = mkBlinkPlugin { };
     blink-cmp-dictionary = mkBlinkPlugin { };
-    blink-cmp-git = mkBlinkPlugin { };
-    blink-emoji = mkBlinkPlugin { };
-    blink-ripgrep = mkBlinkPlugin { };
   };
 }
