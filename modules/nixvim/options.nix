@@ -22,11 +22,36 @@
   clipboard = {
     # Use system clipboard
     register = "unnamedplus";
-    providers = {
-      # Use OSC 52 for SSH clipboard integration
-      osc52.enable = true;
-    };
   };
+
+  extraConfigLua = ''
+    -- OSC 52 clipboard provider for SSH sessions
+    local function osc52_copy(lines, _)
+      local escape = vim.fn.escape(vim.fn.join(lines, "\n"), "\\")
+      local osc52 = string.format("\027]52;c;%s\007", vim.fn.system("base64", escape):gsub("\n", ""))
+      io.stdout:write(osc52)
+    end
+
+    local function osc52_paste(_)
+      -- OSC 52 paste is not widely supported, fallback to default
+      return nil
+    end
+
+    -- Use OSC 52 when no other clipboard provider is available (e.g., in SSH)
+    if vim.env.SSH_CONNECTION or vim.env.SSH_CLIENT or vim.env.SSH_TTY then
+      vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+          ["+"] = osc52_copy,
+          ["*"] = osc52_copy,
+        },
+        paste = {
+          ["+"] = osc52_paste,
+          ["*"] = osc52_paste,
+        },
+      }
+    end
+  '';
 
   opts = {
     # Faster completion
