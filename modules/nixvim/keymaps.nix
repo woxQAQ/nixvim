@@ -3,9 +3,13 @@ let
     inherit mode key action;
     options = {
       inherit desc;
-      silent = true;
-      noremap = true;
-      remap = true;
+    };
+  };
+  mkKeymapExpr = mode: key: action: desc: {
+    inherit mode key action;
+    options = {
+      inherit desc;
+      expr = true;
     };
   };
 
@@ -16,6 +20,8 @@ let
     (mkKeymap "n" "Y" "y$" "Yank to end of line")
     (mkKeymap "n" "<C-c>" ":b#<CR>" "Switch to previous buffer")
     (mkKeymap "n" "<C-x>" ":close<CR>" "Close current window")
+    (mkKeymapExpr "n" "j" "v:count == 0? 'gj' : 'j'" "Navigate by display line")
+    (mkKeymapExpr "n" "k" "v:count == 0? 'gk' : 'k'" "Navigate by display line")
     (mkKeymap [ "n" "v" "i" ] "<C-s>" ":w<CR>" "Save file")
   ];
 
@@ -49,8 +55,6 @@ let
 
   # Multi-mode keymaps examples
   multiModeKeymaps = [
-    (mkKeymap [ "n" "v" ] "j" "gj" "Navigate by display line")
-    (mkKeymap [ "n" "v" ] "k" "gk" "Navigate by display line")
     (mkKeymap [ "n" "i" ] "<C-h>" "<Left>" "Move left in insert mode")
     (mkKeymap [ "n" "i" ] "<C-j>" "<Down>" "Move down in insert mode")
     (mkKeymap [ "n" "i" ] "<C-k>" "<Up>" "Move up in insert mode")
