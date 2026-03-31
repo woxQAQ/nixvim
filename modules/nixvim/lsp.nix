@@ -51,8 +51,7 @@
       #   enable = true;
       # };
       ruff.enable = true;
-      vue_ls.enable = true;
-      vtsls.enable = true;
+      volar.enable = true;
       rust_analyzer.enable = true;
       sqls.enable = true;
       stylelint_lsp.enable = true;
