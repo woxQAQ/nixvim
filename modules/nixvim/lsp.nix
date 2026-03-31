@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./lang/helm.nix
@@ -15,6 +16,7 @@
 
   plugins.lspconfig.enable = true;
   # plugins.lsp-signature.enable = true;
+
   lsp = {
     inlayHints.enable = true;
     servers = {
@@ -41,6 +43,7 @@
       };
       cssls.enable = true;
       dockerls.enable = true;
+      emmylua-ls.enable = true;
       gopls.enable = true;
       html.enable = true;
       jsonls.enable = true;
@@ -51,17 +54,45 @@
       #   enable = true;
       # };
       ruff.enable = true;
-      volar.enable = true;
       rust_analyzer.enable = true;
       sqls.enable = true;
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
       taplo.enable = true;
-      emmylua-ls.enable = true;
+      # ts_ls.enable = true;
       ty = {
         enable = true;
-        # ts_ls.enable = true;
       };
+      vtsls = {
+        enable = true;
+        config = {
+          filetypes = [
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+            "vue"
+          ];
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = [
+                  {
+                    name = "@vue/typescript-plugin";
+                    location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
+                    languages = [ "vue" ];
+                    configNamespace = "typescript";
+                  }
+                ];
+              };
+            };
+            typescript = {
+              tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib";
+            };
+          };
+        };
+      };
+      vue_ls.enable = true;
       yamlls.enable = true;
       # keep-sorted end
     };

@@ -22,6 +22,10 @@
   clipboard = {
     # Use system clipboard
     register = "unnamedplus";
+    providers = {
+      # Use OSC 52 for SSH clipboard integration
+      osc52.enable = true;
+    };
   };
 
   opts = {

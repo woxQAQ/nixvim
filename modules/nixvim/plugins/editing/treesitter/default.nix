@@ -24,6 +24,7 @@
         cpp
         nu
         diff
+        vue
 
         lua
         nix
