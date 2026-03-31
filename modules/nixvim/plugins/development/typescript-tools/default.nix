@@ -5,13 +5,6 @@
 {
   plugins.typescript-tools = {
     enable = true;
-    lazyLoad.settings.ft = [
-      "typescript"
-      "javascript"
-      "typescriptreact"
-      "javascriptreact"
-      "vue"
-    ];
     settings.settings = {
       code_lens = "off";
       complete_function_calls = false;
