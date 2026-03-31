@@ -16,6 +16,9 @@ in
         selection_modes = {
           "@parameter.outer" = "v";
           "@function.outer" = "V";
+          "@function.inner" = "V";
+          "@class.inner" = "V";
+          "@class.outer" = "V";
         };
       };
 

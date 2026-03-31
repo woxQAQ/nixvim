@@ -9,6 +9,7 @@
       lazyLoad.settings.cmd = "Glance";
 
       settings = {
+        height = 25;
         border.enable = true;
       };
     };

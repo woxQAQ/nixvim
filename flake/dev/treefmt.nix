@@ -36,6 +36,7 @@
             "*Makefile"
             "*flake.lock"
             ".envrc"
+            "CLAUDE.md"
             # keep-sorted end
           ];
         };

@@ -24,7 +24,7 @@
           root_markers = [ ".git" ];
         };
       };
-      # keep-sorted start
+      # keep-sorted start block=yes
       bashls.enable = true;
       biome = {
         enable = true;
@@ -47,9 +47,6 @@
       marksman.enable = true;
       nushell.enable = true;
       protols.enable = true;
-      ty = {
-        enable = true;
-      };
       # pyright = {
       #   enable = true;
       # };
@@ -59,7 +56,11 @@
       stylelint_lsp.enable = true;
       tailwindcss.enable = true;
       taplo.enable = true;
-      # ts_ls.enable = true;
+      emmylua-ls.enable = true;
+      ty = {
+        enable = true;
+        # ts_ls.enable = true;
+      };
       yamlls.enable = true;
       # keep-sorted end
     };

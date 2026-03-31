@@ -9,4 +9,14 @@
     };
   };
 
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>ft";
+      action = ''<CMD>lua Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" }})<CR>'';
+      options = {
+        desc = "Find TODOs";
+      };
+    }
+  ];
 }

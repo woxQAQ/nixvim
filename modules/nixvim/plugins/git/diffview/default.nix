@@ -4,6 +4,20 @@
 {
   plugins.diffview = {
     enable = true;
+    settings = {
+      enhanced_diff_hl = true;
+      view = {
+        default.disable_diagnostics = true;
+        merge_tool.layout = "diff3_mixed";
+      };
+      file_history_panel = {
+        win_config = {
+          type = "split";
+          position = "bottom";
+          height = 10;
+        };
+      };
+    };
   };
   keymaps = import ./keymaps.nix;
 }

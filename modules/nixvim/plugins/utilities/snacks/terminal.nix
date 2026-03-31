@@ -1,5 +1,8 @@
 {
   plugins.snacks.settings = {
-    terminal.enabled = true;
+    terminal = {
+      enabled = true;
+      shell = "nu";
+    };
   };
 }

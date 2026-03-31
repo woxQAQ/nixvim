@@ -24,19 +24,35 @@
         comment_visual = "<leader>/";
         textobject = "<leader>/";
       };
-      indentscope = {
-        symbol = "│";
-        options = {
-          try_as_border = true;
-        };
-      };
+      # indentscope = {
+      #   symbol = "│";
+      #   options = {
+      #     try_as_border = true;
+      #   };
+      # };
     };
 
     mini-ai.enable = false;
     mini-align.enable = true;
+    mini-basics.enable = true;
     mini-icons = {
       enable = true;
       mockDevIcons = true;
+    };
+    mini-snippets = {
+      enable = true;
+      settings = {
+        mappings = {
+          # Avoid conflicts with khanelivim's global insert-mode <C-j>/<C-k>/<C-h>/<C-l> movement maps.
+          expand = "<C-g><C-j>";
+          jump_next = "<C-g><C-l>";
+          jump_prev = "<C-g><C-h>";
+          stop = "<C-g><C-c>";
+        };
+        snippets = {
+          __unkeyed-1.__raw = "require('mini.snippets').gen_loader.from_lang()";
+        };
+      };
     };
   };
 }

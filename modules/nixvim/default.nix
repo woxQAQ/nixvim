@@ -13,8 +13,8 @@ in
     ../woxvim
     ./autocommands.nix
     ./color.nix
-    ./diagnostics.nix
     ./dependencies.nix
+    ./diagnostics.nix
     ./ft.nix
     ./keymaps.nix
     ./lsp.nix

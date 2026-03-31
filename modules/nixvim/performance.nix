@@ -8,6 +8,7 @@
         "neotest"
         overseer-nvim
         mini-nvim
+        "friendly-snippets"
       ];
     };
     byteCompileLua = {

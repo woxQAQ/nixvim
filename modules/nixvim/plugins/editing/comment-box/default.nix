@@ -4,10 +4,35 @@
   plugins.comment-box = {
     enable = true;
     lazyLoad.settings.cmd = [
+      # Utils
       "CBd"
+      "CBy"
+      "CBcatalog"
+      # Boxes
+      "CBllbox"
+      "CBlcbox"
+      "CBlrbox"
+      "CBclbox"
       "CBccbox"
-      "CBllline"
+      "CBcrbox"
+      "CBrlbox"
+      "CBrcbox"
+      "CBrrbox"
+      # Lines
       "CBline"
+      "CBlline"
+      "CBcline"
+      "CBrline"
+      # Titled Lines
+      "CBllline"
+      "CBlcline"
+      "CBlrline"
+      "CBclline"
+      "CBccline"
+      "CBcrline"
+      "CBrlline"
+      "CBrcline"
+      "CBrrline"
     ];
   };
 

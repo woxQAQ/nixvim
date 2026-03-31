@@ -21,7 +21,7 @@
     enable = true;
     settings = {
       image.enabled = true;
-      indent.enabled = true;
+      # indent.enabled = true;
       scroll.enabled = true;
       scope = {
         enabled = true;

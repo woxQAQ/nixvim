@@ -3,6 +3,7 @@
 # 是现代 Neovim 配置的核心插件
 {
   config,
+  pkgs,
   ...
 }:
 {
@@ -13,6 +14,29 @@
       folding.enable = true;
       highlight.enable = true;
       indent.enable = true;
+      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        bash
+        go
+        javascript
+        typescript
+        rust
+        python
+        cpp
+        nu
+        diff
+
+        lua
+        nix
+
+        regex
+        make
+
+        markdown
+        json
+        toml
+        xml
+        yaml
+      ];
     };
 
     treesitter-context = {

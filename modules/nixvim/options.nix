@@ -176,7 +176,6 @@
 
     spelllang = [
       "en"
-      "cjk"
     ];
 
     # Align indent to next multiple value of shiftwidth. For its meaning,
@@ -207,7 +206,7 @@
       "closeoff"
       "context:3"
       "internal"
-      "indeant-heuristic"
+      "indent-heuristic"
       "algorithm:histogram"
     ];
 
@@ -215,5 +214,12 @@
     ruler = false;
 
     showcmdloc = "statusline";
+
+    completeitemalign = "abbr,kind,menu";
+    # completepopup = "height:12,width:60,border:single";
+    jumpoptions = "stack";
+    pumborder = "single";
+    pummaxwidth = 100;
+    completetimeout = 100;
   };
 }

@@ -13,6 +13,16 @@
 
     settings = {
       options = {
+        icons_enabled = true;
+        component_separators = {
+          left = "|";
+          right = "|";
+        };
+
+        section_separators = "";
+        always_divide_middle = true;
+        refresh.statusline = 1000;
+
         disabledFiletypes = {
           statusline = [
             "startup"
@@ -20,7 +30,7 @@
           ];
         };
 
-        theme = "catppuccin";
+        theme = "auto";
         globalstatus = true;
       };
       sections = import ./sections.nix;

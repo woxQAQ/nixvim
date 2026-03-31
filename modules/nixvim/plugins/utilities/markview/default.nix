@@ -36,15 +36,13 @@
 
           condition.__raw = ''
             function (buffer)
-               local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt;
-
-               if bt == "nofile" and (ft == "Avante" or ft == "codecompanion") then
-                    return true;
-               elseif bt == "nofile" then
-                    return false;
-               else
-                    return true;
-               end
+               local ft = vim.bo[buffer].ft;
+               local supported = {
+                    "Avante", "codecompanion", "latex",
+                    "markdown", "md", "norg", "org",
+                    "quarto", "rmd", "typst", "vimwiki"
+               };
+               return vim.list_contains(supported, ft);
             end
           '';
         };

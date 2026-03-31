@@ -14,9 +14,9 @@
     implementation = "prefer_rust_with_warning";
   };
   appearance = {
-    nerd_font_variant = "moni";
+    nerd_font_variant = "mono";
   };
-  snippets.preset = "luasnip";
+  snippets.preset = "mini_snippets";
   keymap = {
     preset = "default";
     "<Enter>" = [
@@ -53,27 +53,31 @@
         module = "blink-cmp-dictionary";
         name = "blink-cmp-dictionary";
         score_offset = 0;
-        dictionary_search_threshold = 3;
-        definition_pointers = [
-          "!"
-          "&"
-          "^"
-        ];
+        opts = {
+          dictionary_search_threshold = 3;
+          definition_pointers = [
+            "!"
+            "&"
+            "^"
+          ];
+        };
       };
       thesaurus = {
         module = "blink-cmp-words.thesaurus";
         name = "Thesaurus";
         score_offset = 0;
-        similarity_depth = 2;
-        definition_pointers = [
-          "!"
-          "&"
-          "^"
-        ];
-        similarity_pointers = [
-          "&"
-          "^"
-        ];
+        opts = {
+          similarity_depth = 2;
+          definition_pointers = [
+            "!"
+            "&"
+            "^"
+          ];
+          similarity_pointers = [
+            "&"
+            "^"
+          ];
+        };
       };
     };
   };
