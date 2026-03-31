@@ -1,3 +1,6 @@
+# nvim-refactoring - 代码重构插件，
+# 支持提取函数/变量、内联变量、重命名等重构操作，
+# 还可生成调试用的 printf 和 print_var 语句
 { config, lib, ... }:
 {
   plugins = {

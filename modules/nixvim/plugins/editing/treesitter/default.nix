@@ -1,3 +1,6 @@
+# nvim-treesitter - 基于树解析器的语法高亮、折叠和缩进，
+# treesitter-context 显示当前作用域上下文 (如函数名)，
+# 是现代 Neovim 配置的核心插件
 {
   config,
   ...

@@ -1,3 +1,4 @@
+# 语言支持插件 (Nix、HMTS 等)
 { lib, ... }:
 let
   inherit (builtins) readDir;

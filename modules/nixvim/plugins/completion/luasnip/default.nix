@@ -1,3 +1,5 @@
+# LuaSnip - 基于 Lua 的代码片段引擎，
+# 支持代码片段的展开、跳转和动态生成，与 LSP 补全集成
 {
   plugins.luasnip = {
     enable = true;

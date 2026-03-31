@@ -1,3 +1,6 @@
+# yanky.nvim - 剪贴板历史管理插件 (Yank history ring)，
+# 记录所有 yank/delete 操作历史，支持在历史记录中浏览和粘贴，
+# 使用 SQLite 持久化存储，支持与系统剪贴板同步
 let
   keymaps = import ./keymaps.nix;
   yankyLazyKeys = map (keymap: {

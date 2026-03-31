@@ -1,3 +1,5 @@
+# Avante.nvim - Neovim 的 AI 编程助手，支持与 Claude 等大语言模型交互，
+# 提供代码生成、编辑、解释等功能，带有侧边面板界面
 {
   config,
   lib,

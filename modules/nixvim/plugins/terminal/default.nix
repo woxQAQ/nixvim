@@ -1,3 +1,4 @@
+# 终端插件 (Iron REPL、ToggleTerm 终端)
 { lib, ... }:
 let
   inherit (builtins) readDir;

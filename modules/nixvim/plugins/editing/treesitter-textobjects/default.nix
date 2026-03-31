@@ -1,3 +1,6 @@
+# nvim-treesitter-textobjects - 基于 Treesitter 的文本对象和跳转，
+# 提供 @function、@class 等语义化文本对象选择，
+# 以及 ]m ]c 等在函数/类之间跳转的快捷键
 { config, ... }:
 let
   hasMiniAi = config.plugins.mini-ai.enable;

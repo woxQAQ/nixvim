@@ -1,3 +1,6 @@
+# gitsigns.nvim - Git 集成插件，在行号旁显示增删改标记，
+# 支持行内 blame 注释、代码块暂存/重置、差异预览，
+# 以及 hunk 导航和部分暂存等 Git 操作
 {
   plugins.gitsigns = {
     enable = true;

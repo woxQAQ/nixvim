@@ -1,3 +1,6 @@
+# tuis.nvim - 终端 UI 选择器，
+# 提供一个菜单来快速选择和启动常用的终端工具 (TUI)，
+# 如 btop、lazygit、ncdu 等
 {
   config,
   lib,

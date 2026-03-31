@@ -1,3 +1,4 @@
+# 文件管理插件 (Yazi 文件管理器等)
 { lib, ... }:
 let
   inherit (builtins) readDir;

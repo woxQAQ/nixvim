@@ -1,3 +1,4 @@
+# AI 辅助编程插件 (Avante, Claude Code 等)
 { lib, ... }:
 let
   inherit (builtins) readDir;

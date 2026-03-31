@@ -1,3 +1,6 @@
+# nvim-dap (Debug Adapter Protocol) - Neovim 的调试器前端，
+# 支持断点、变量查看、调用栈等调试功能，
+# 可对接 codelldb (C/C++/Rust)、Go Delve、Python 等多种调试后端
 {
   pkgs,
   lib,

@@ -1,3 +1,6 @@
+# typescript-tools.nvim - TypeScript/JavaScript 的 LSP 增强插件，
+# 使用独立于 tsserver 的方式提供更快的类型检查和代码操作，
+# 替代 tsserver 直接使用，减少内存占用并提升响应速度
 { pkgs, ... }:
 {
   plugins.typescript-tools = {
