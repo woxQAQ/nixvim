@@ -10,6 +10,7 @@
       "javascript"
       "typescriptreact"
       "javascriptreact"
+      "vue"
     ];
     settings.settings = {
       code_lens = "off";
