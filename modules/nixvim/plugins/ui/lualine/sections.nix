@@ -24,7 +24,7 @@
           return msg
         end
       '';
-      color.fg = "#E0C479";
+      color.fg = "#B36B00";
     }
     {
       icon = "❄ ";

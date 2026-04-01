@@ -4,6 +4,6 @@
     enable = true;
   };
   plugins = {
-    transparent.enable = true;
+    transparent.enable = false;
   };
 }
